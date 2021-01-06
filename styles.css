@@ -41,14 +41,17 @@ header {
   background-color: #46424D;
   color: #fff;
   border-radius: 5px;
-  height: 60vh;
+  height: 75vh;
+  margin: 3%;
 }
 
-/* ---- LEFT BOX ---- */
-.left-title {
+.title {
   color: #CBC9CF;
   margin: 25px 0 10px 25px;
 }
+
+
+/* ---- LEFT BOX ---- */
 
 .left {
   display: flex;
@@ -58,10 +61,6 @@ header {
 
 
 /* ---- RIGHT BOX ---- */
-.right-title {
-  color: #CBC9CF;
-  margin: 25px 0 10px 25px;
-}
 
 .right {
   display: flex;
