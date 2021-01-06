@@ -43,6 +43,7 @@ header {
   border-radius: 5px;
   height: 75vh;
   margin: 3%;
+  box-shadow: 5px 5px #26222D;
 }
 
 .title {
