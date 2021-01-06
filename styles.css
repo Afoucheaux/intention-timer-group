@@ -1,0 +1,89 @@
+/* ---- GENERAL ---- */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #2B2733;
+}
+
+/* ---- HEADER ---- */
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: #46424D;
+}
+
+.h1 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.5em;
+  padding: 20px 0 20px 0;
+}
+
+/* ---- BOX LAYOUT ---- */
+.main {
+  display: flex;
+  margin-top: 0;
+  color: #fff;
+}
+
+.activity {
+  display: flex;
+  flex-direction: column;
+  background-color: #46424D;
+  color: #fff;
+  border-radius: 5px;
+  height: 75vh;
+  margin: 3%;
+}
+
+.title {
+  color: #CBC9CF;
+  margin: 25px 0 10px 25px;
+}
+
+
+/* ---- LEFT BOX ---- */
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+
+
+/* ---- RIGHT BOX ---- */
+
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  border-left: 3px solid #46424D;
+}
+
+/* ---- BUTTONS ---- */
+.study-img,
+.meditate-img,
+.exercise-img {
+  width: 40px;
+}
+
+.category-button {
+  background-color: #46424D;
+  color: #fff;
+  border: solid;
+  border-radius: 5px;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-around;
+}
