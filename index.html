@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Intention-Timer</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="h1"> INTENTION TIMER</h1>
+    </header>
+    <main class="main">
+      <section class="left">
+        <h1 class="left-title">New Activity</h1>
+        <form class="activity">
+          <label class="category">Select a category:</label>
+          <div class="top-buttons">
+            <button type="button" class="category-button" id="study"><img class="" src="assets/">Study</button>
+            <button type="button" class="category-button" id="meditate"><img class="" src="assets/">Meditate</button>
+            <button type="button" class="category-button" id="exercise"><img class="" src="assets/">Exercise</button>
+          </div>
+          <div class="accomplish">
+            <label class="accomplish-title">What would you like to accomplish during this time?</label>
+            <input type="text" class="input-field" id="accomplish-input">
+          </div>
+          <div class="timer-field">
+            <label class="time">Minutes</label>
+            <input type="text" class="time-input" id="minutes-input">
+            <label class="seconds">Seconds</label>
+            <input type="text" class="time-input" id="seconds-input">
+          </div>
+          <div class="start-button">
+            <button type="button" class="start-button" id="start-activiy">START ACTIVITY</button>
+          </div>
+        </form>
+      </section>
+      <section class="right">
+        <h1 class="right-title">Past Activities</h1>
+        <article class="default">
+          <p class="default-message">You haven't logged any activity yet.</p>
+          <p class="default-message">Complete the to the left to get started!</p>
+        </article>
+      </section>
+    </main>
+  </body>
+  <script type="text/javascript" src="activity.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</html>
