@@ -1,0 +1,67 @@
+/* ---- GENERAL ---- */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #2B2733;
+}
+
+/* ---- HEADER ---- */
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: #46424D;
+}
+
+.h1 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.5em;
+  padding: 20px 0 20px 0;
+}
+
+/* ---- BOX LAYOUT ---- */
+.main {
+  display: flex;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.activity {
+  background-color: #46424D;
+  color: #fff;
+}
+
+/* ---- BUTTONS ---- */
+.study-img,
+.meditate-img,
+.exercise-img {
+  width: 40px;
+}
+
+.category-button {
+  background-color: #46424D;
+  color: #fff;
+  border: solid;
+  border-radius: 5px;
+}
