@@ -31,25 +31,43 @@ header {
 /* ---- BOX LAYOUT ---- */
 .main {
   display: flex;
-  margin-top: 20px;
+  margin-top: 0;
   color: #fff;
+}
+
+.activity {
+  display: flex;
+  flex-direction: column;
+  background-color: #46424D;
+  color: #fff;
+  border-radius: 5px;
+  height: 60vh;
+}
+
+/* ---- LEFT BOX ---- */
+.left-title {
+  color: #CBC9CF;
+  margin: 25px 0 10px 25px;
 }
 
 .left {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 65%;
+}
+
+
+/* ---- RIGHT BOX ---- */
+.right-title {
+  color: #CBC9CF;
+  margin: 25px 0 10px 25px;
 }
 
 .right {
   display: flex;
   flex-direction: column;
-  width: 30%;
-}
-
-.activity {
-  background-color: #46424D;
-  color: #fff;
+  width: 35%;
+  border-left: 3px solid #46424D;
 }
 
 /* ---- BUTTONS ---- */
@@ -64,4 +82,9 @@ header {
   color: #fff;
   border: solid;
   border-radius: 5px;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-around;
 }
