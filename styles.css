@@ -68,7 +68,6 @@ input[type=text] {
   box-shadow: 5px 5px #26222D;
 }
 
-
 .accomplish {
   display: flex;
   justify-content: space-around;
@@ -85,13 +84,13 @@ input[type=text] {
 .field-left {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 43%;
 }
 
 .field-right {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 43%;
 }
 
 .accomplish-title {
@@ -103,11 +102,11 @@ input[type=text] {
   outline: 0;
   background-color: #46424D;
   border-bottom: 1px solid #fff;
-  margin-bottom: 10%;
+  margin-bottom: 12%;
 }
 
 .time {
-  margin-bottom: 25%;
+  margin-bottom: 10%;
 }
 
 .time-input {
@@ -120,11 +119,8 @@ input[type=text] {
 }
 
 .seconds {
-  margin-bottom: 25%;
+  margin-bottom: 10%;
 }
-
-
-
 
 
 /* ---- RIGHT BOX ---- */
@@ -137,6 +133,10 @@ input[type=text] {
   height: 91vh;
 }
 
+.right-title {
+  margin: 7% 0% 7% 5%;
+}
+
 .default {
   display: flex;
   flex-direction: column;
@@ -144,7 +144,7 @@ input[type=text] {
 }
 
 .default-message {
-
+  margin: 1%;
 }
 
 /* ---- BUTTONS ---- */
