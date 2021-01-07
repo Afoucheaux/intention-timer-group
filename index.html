@@ -17,21 +17,25 @@
         <form class="activity">
           <label class="category">Select a category:</label>
           <div class="top-buttons">
-            <button type="button" class="category-button" id="study"><img class="study-img" src="assets/study.svg">Study</button>
-            <button type="button" class="category-button" id="meditate"><img class="meditate-img" src="assets/meditate.svg">Meditate</button>
-            <button type="button" class="category-button" id="exercise"><img class="exercise-img" src="assets/exercise.svg">Exercise</button>
+            <button type="button" class="category-button" id="study"><img class="study-img" src="assets/study.svg" alt="light bulb for insite">Study</button>
+            <button type="button" class="category-button" id="meditate"><img class="meditate-img" src="assets/meditate.svg" alt="lotus pedal">Meditate</button>
+            <button type="button" class="category-button" id="exercise"><img class="exercise-img" src="assets/exercise.svg" alt="sneakers">Exercise</button>
           </div>
           <div class="accomplish">
             <label class="accomplish-title">What would you like to accomplish during this time?</label>
             <input type="text" class="input-field" id="accomplish-input">
           </div>
           <div class="timer-field">
-            <label class="time">Minutes</label>
-            <input type="text" class="time-input" id="minutes-input">
-            <label class="seconds">Seconds</label>
-            <input type="text" class="time-input" id="seconds-input">
+            <div class="field-left">
+              <label class="time">Minutes</label>
+              <input type="text" class="time-input" id="minutes-input">
+            </div>
+            <div class="field-right">
+              <label class="seconds">Seconds</label>
+              <input type="text" class="time-input" id="seconds-input">
+            </div>
           </div>
-          <div class="start-button">
+          <div class="start">
             <button type="button" class="start-button" id="start-activiy">START ACTIVITY</button>
           </div>
         </form>
