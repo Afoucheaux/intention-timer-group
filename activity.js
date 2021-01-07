@@ -5,6 +5,15 @@ class Activity {
     this.minutes = ;
     this.seconds = ;
     this.completed = ;
-    this.id = ;
+    this.id = Date.now();
   }
-}
+  startTimer() {
+
+  }
+  markComplete() {
+
+  }
+  saveToStorage() {
+
+  }
+};
