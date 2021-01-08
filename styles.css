@@ -150,7 +150,10 @@ input[type=text] {
 /* ---- BUTTONS ---- */
 .study-img,
 .meditate-img,
-.exercise-img {
+.exercise-img,
+.lit-exercise-img,
+.lit-study-img,
+.lit-meditate-img {
   width: 20px;
 }
 
@@ -182,4 +185,8 @@ input[type=text] {
   border-radius: 5px;
   border: none;
   color: #2B2733;
+}
+
+.hidden {
+  display: none;
 }
