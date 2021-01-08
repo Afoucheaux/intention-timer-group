@@ -1,3 +1,5 @@
+//Global Variables
+var currentCategory;
 //Category BUTTONS
 var studyButton = document.querySelector('#study');
 var meditateButton = document.querySelector('#meditate');
@@ -8,9 +10,15 @@ var litMeditateButton = document.querySelector('#lit-meditate');
 var litExerciseButton = document.querySelector('#lit-exercise');
 var minuteInputField = document.querySelector('#minutes-input');
 var secondsInputField = document.querySelector('#seconds-input');
+var activityButton = document.querySelector('#start-activity');
+var accomplishInput = document.querySelector('#accomplish-input');
 //Event Listeners
 form.addEventListener('click', function(event){
-  changeButtonColor();
+  if (event.target.className === 'category-button') {
+    changeButtonColor();
+  } if (event.target.className === 'start-button') {
+  formDataCollection();
+ }
 });
 //Functions
 function removeCategoryColor(){
@@ -26,12 +34,15 @@ function changeButtonColor() {
  if (event.target.id === 'study'){
   hide(studyButton);
   unhide(litStudyButton);
+  currentCategory = 'Study';
 } else if (event.target.id === 'meditate') {
   hide(meditateButton);
   unhide(litMeditateButton);
+  currentCategory = 'Meditate';
  } else if (event.target.id === 'exercise') {
    hide(exerciseButton);
    unhide(litExerciseButton);
+   currentCategory = 'Exercise';
  }
 };
 function hide(element) {
@@ -41,10 +52,21 @@ function unhide(element) {
   element.classList.remove('hidden');
 }
 function timeInputRestriction(){
-  if (secondsInputField.value ){
+  if (secondsInputField.value){
   }
 }
-//If the seconds input field is greater than 60 and the minutes input field is greater than 60 or theres a e, then 
+function formDataCollection(){
+  event.preventDefault();
+  event.target === 'start-activity';
+  var userActivity = accomplishInput.value;
+  var userMinutes = minuteInputField.value;
+  var userSeconds = secondsInputField.value;
+  var userCategory = currentCategory;
+  var currentActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
+console.log(currentActivity);
+}
+
+//If the seconds input field is greater than 60 and the minutes input field is greater than 60 or theres a e, then
 //parent.addEventListener('click, function(event)'){
 //if (event.target.className === 'buttonName') {
 //run the change button function here

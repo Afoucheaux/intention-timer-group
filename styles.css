@@ -129,6 +129,8 @@ input[type=text] {
 
 .error-code {
   margin-bottom: 10%;
+  color: #EFB7EC;
+  font-size: .9em;
 }
 
 /* ---- RIGHT BOX ---- */
