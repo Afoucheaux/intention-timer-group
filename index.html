@@ -14,7 +14,7 @@
     <main class="main">
       <section class="left">
         <h1 class="left-title title">New Activity</h1>
-        <form class="activity" id="form">
+        <form class="activity" id="form" >
           <label class="category">Select a category:</label>
           <div class="top-buttons">
             <button type="button" class="category-button" id="study"><img class="study-img" src="assets/study.svg" alt="light bulb for insite">Study</button>
@@ -27,15 +27,18 @@
           <div class="accomplish">
             <label class="accomplish-title">What would you like to accomplish during this time?</label>
             <input type="text" class="input-field" id="accomplish-input">
+            <label class="error-code hidden" id="text-error"><img class="error-img" src="assets/warning.svg" alt="error message">A description is required.</label>
           </div>
           <div class="timer-field">
             <div class="field-left">
               <label class="time">Minutes</label>
-              <input type="text" class="time-input" id="minutes-input">
+              <input type="number" class="time-input" id="minutes-input" min="0">
+              <label class="error-code hidden" id="minutes-error"><img class="error-img" src="assets/warning.svg" alt="error message">A number is required.</label>
             </div>
             <div class="field-right">
               <label class="seconds">Seconds</label>
-              <input type="text" class="time-input" id="seconds-input">
+              <input type="number" class="time-input" id="seconds-input" min="0">
+              <label class="error-code hidden" id="seconds-error"><img class="error-img" src="assets/warning.svg" alt="error message">A number between 1 and 59 is required.</label>
             </div>
           </div>
           <div class="start">

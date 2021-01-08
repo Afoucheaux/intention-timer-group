@@ -102,7 +102,7 @@ input[type=text] {
   outline: 0;
   background-color: #46424D;
   border-bottom: 1px solid #fff;
-  margin-bottom: 12%;
+  margin-bottom: 5%;
 }
 
 .time {
@@ -122,6 +122,14 @@ input[type=text] {
   margin-bottom: 10%;
 }
 
+.error-img {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.error-code {
+  margin-bottom: 10%;
+}
 
 /* ---- RIGHT BOX ---- */
 
@@ -197,7 +205,7 @@ input[type=text] {
 }
 #lit-meditate {
   border-color: #C278FD;
-  color: #C278FD;
+  color: #C278FD.;
 }
 
 .hidden {
