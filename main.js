@@ -31,6 +31,7 @@ function removeCategoryColor(){
   unhide(exerciseButton);
   unhide(meditateButton);
 }
+
 function changeButtonColor() {
   removeCategoryColor();
  if (event.target.id === 'study'){
@@ -47,12 +48,15 @@ function changeButtonColor() {
    currentCategory = 'Exercise';
  }
 };
+
 function hide(element) {
   element.classList.add('hidden');
 }
+
 function unhide(element) {
   element.classList.remove('hidden');
 }
+
 function timeInputRestriction(){
   if (secondsInputField.value){
   }
@@ -68,13 +72,10 @@ function formDataCollection(){
     var userMinutes = minuteInputField.value;
     var userSeconds = secondsInputField.value;
     var userCategory = currentCategory;
-    var currentActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
-    console.log(currentActivity);
-    console.log(typeof minuteInputField.value);
+    currentActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
+    switchToTimer();
   }
 }
-
-
 
 function checkInputs() {
   var error = false;
@@ -86,9 +87,25 @@ function checkInputs() {
   } else if(minuteInputField.value === "" || secondsInputField.value === "") {
     error = true;
   }
-  console.log(error);
   return error;
 }
+
+function switchToTimer() {
+  form.innerHTML = `<div class="timer-view">
+    <div class="intention-input">
+      <label for="category-picked">${currentActivity.description}</label>
+    </div>
+    <div class="time-text">
+      <p>${currentActivity.minutes}:${currentActivity.seconds}</p>
+    </div>
+    <div class="start-timer">
+      <button class="start-timer-button" type="button">START</button>
+    </div>`;
+    console.log(currentActivity);
+    console.log(currentActivity.description);
+}
+
+
 
 //If the seconds input field is greater than 60 and the minutes input field is greater than 60 or theres a e, then
 //parent.addEventListener('click, function(event)'){
