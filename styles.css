@@ -21,7 +21,8 @@ header {
   background-color: #46424D;
 }
 
-input[type=text] {
+input[type=text],
+input[type=number] {
   color: #fff;
   font-size: 1.1em;
 }
@@ -207,7 +208,7 @@ input[type=text] {
 }
 #lit-meditate {
   border-color: #C278FD;
-  color: #C278FD.;
+  color: #C278FD;
 }
 
 .hidden {

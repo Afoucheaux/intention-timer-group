@@ -32,13 +32,11 @@
           <div class="timer-field">
             <div class="field-left">
               <label class="time">Minutes</label>
-              <input type="number" class="time-input" id="minutes-input" min="0">
-              <label class="error-code hidden" id="minutes-error"><img class="error-img" src="assets/warning.svg" alt="error message">A number is required.</label>
+              <input type="number" class="time-input" id="minutes-input" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189">
             </div>
             <div class="field-right">
               <label class="seconds">Seconds</label>
-              <input type="number" class="time-input" id="seconds-input" min="0">
-              <label class="error-code hidden" id="seconds-error"><img class="error-img" src="assets/warning.svg" alt="error message">A number between 1 and 59 is required.</label>
+              <input type="number" class="time-input" id="seconds-input" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189">
             </div>
           </div>
           <div class="start">

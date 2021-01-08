@@ -1,5 +1,6 @@
 //Global Variables
-var currentCategory;
+var currentCategory = null;
+var currentActivity;
 //Category BUTTONS
 var studyButton = document.querySelector('#study');
 var meditateButton = document.querySelector('#meditate');
@@ -12,6 +13,7 @@ var minuteInputField = document.querySelector('#minutes-input');
 var secondsInputField = document.querySelector('#seconds-input');
 var activityButton = document.querySelector('#start-activity');
 var accomplishInput = document.querySelector('#accomplish-input');
+var textError = document.querySelector('#text-error');
 //Event Listeners
 form.addEventListener('click', function(event){
   if (event.target.className === 'category-button') {
@@ -55,15 +57,37 @@ function timeInputRestriction(){
   if (secondsInputField.value){
   }
 }
+
 function formDataCollection(){
   event.preventDefault();
   event.target === 'start-activity';
-  var userActivity = accomplishInput.value;
-  var userMinutes = minuteInputField.value;
-  var userSeconds = secondsInputField.value;
-  var userCategory = currentCategory;
-  var currentActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
-console.log(currentActivity);
+  if(checkInputs() === true) {
+    return;
+  } else {
+    var userActivity = accomplishInput.value;
+    var userMinutes = minuteInputField.value;
+    var userSeconds = secondsInputField.value;
+    var userCategory = currentCategory;
+    var currentActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
+    console.log(currentActivity);
+    console.log(typeof minuteInputField.value);
+  }
+}
+
+
+
+function checkInputs() {
+  var error = false;
+  if(currentCategory === null) {
+    error = true;
+  } else if(accomplishInput.value === "") {
+    unhide(textError);
+    error = true;
+  } else if(minuteInputField.value === "" || secondsInputField.value === "") {
+    error = true;
+  }
+  console.log(error);
+  return error;
 }
 
 //If the seconds input field is greater than 60 and the minutes input field is greater than 60 or theres a e, then
