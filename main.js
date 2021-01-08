@@ -14,12 +14,14 @@ var secondsInputField = document.querySelector('#seconds-input');
 var activityButton = document.querySelector('#start-activity');
 var accomplishInput = document.querySelector('#accomplish-input');
 var textError = document.querySelector('#text-error');
+
 //Event Listeners
 form.addEventListener('click', function(event){
   if (event.target.className === 'category-button') {
     changeButtonColor();
   } if (event.target.className === 'start-button') {
   formDataCollection();
+  colorUpdate();
  }
 });
 //Functions
@@ -99,13 +101,20 @@ function switchToTimer() {
       <p>${currentActivity.minutes}:${currentActivity.seconds}</p>
     </div>
     <div class="start-timer">
-      <button class="start-timer-button" type="button">START</button>
+      <button class="start-timer-button" id="start-timer-button" type="button">START</button>
     </div>`;
-    console.log(currentActivity);
-    console.log(currentActivity.description);
 }
 
-
+function colorUpdate() {
+  var startTimerButton = document.querySelector('#start-timer-button');
+  if(currentActivity.category === 'Study') {
+    startTimerButton.style.border = "3px solid #B3FD78";
+  } else if(currentActivity.category === 'Meditate') {
+    startTimerButton.style.border = "3px solid #C278FD";
+  } else if(currentActivity.category === 'Exercise') {
+    startTimerButton.style.border = "3px solid #FD8078";
+  }
+}
 
 //If the seconds input field is greater than 60 and the minutes input field is greater than 60 or theres a e, then
 //parent.addEventListener('click, function(event)'){
