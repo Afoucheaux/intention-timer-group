@@ -102,7 +102,7 @@ input[type=text] {
   outline: 0;
   background-color: #46424D;
   border-bottom: 1px solid #fff;
-  margin-bottom: 12%;
+  margin-bottom: 5%;
 }
 
 .time {
@@ -122,6 +122,16 @@ input[type=text] {
   margin-bottom: 10%;
 }
 
+.error-img {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.error-code {
+  margin-bottom: 10%;
+  color: #EFB7EC;
+  font-size: .9em;
+}
 
 /* ---- RIGHT BOX ---- */
 
@@ -150,7 +160,10 @@ input[type=text] {
 /* ---- BUTTONS ---- */
 .study-img,
 .meditate-img,
-.exercise-img {
+.exercise-img,
+.lit-exercise-img,
+.lit-study-img,
+.lit-meditate-img {
   width: 20px;
 }
 
@@ -182,4 +195,21 @@ input[type=text] {
   border-radius: 5px;
   border: none;
   color: #2B2733;
+}
+
+#lit-exercise {
+  border-color: #FD8078;
+  color: #FD8078;
+}
+#lit-study {
+  border-color: #B3FD78;
+  color: #B3FD78;
+}
+#lit-meditate {
+  border-color: #C278FD;
+  color: #C278FD.;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,10 +1,10 @@
 class Activity {
-  constructor() {
-    this.category = ;
-    this.description = ;
-    this.minutes = ;
-    this.seconds = ;
-    this.completed = ;
+  constructor(cat, act, min, sec) {
+    this.category = cat;
+    this.description = act;
+    this.minutes = min;
+    this.seconds = sec;
+    this.completed = false;
     this.id = Date.now();
   }
   startTimer() {
