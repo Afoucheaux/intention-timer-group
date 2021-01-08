@@ -38,7 +38,6 @@ function hide(element) {
 function unhide(element) {
   element.classList.remove('hidden');
 }
-
 //parent.addEventListener('click, function(event)'){
 //if (event.target.className === 'buttonName') {
 //run the change button function here

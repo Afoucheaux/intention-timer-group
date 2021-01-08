@@ -187,6 +187,19 @@ input[type=text] {
   color: #2B2733;
 }
 
+#lit-exercise {
+  border-color: #FD8078;
+  color: #FD8078;
+}
+#lit-study {
+  border-color: #B3FD78;
+  color: #B3FD78;
+}
+#lit-meditate {
+  border-color: #C278FD;
+  color: #C278FD;
+}
+
 .hidden {
   display: none;
 }
