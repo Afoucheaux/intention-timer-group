@@ -226,6 +226,7 @@ input[type=number] {
   border: 3px solid #FFF;
   font-size: 1.4em;
   color: #FFF;
+  outline: none;
 }
 
 .intention-input {
@@ -236,8 +237,9 @@ input[type=number] {
 
 .time-text {
   margin-bottom: 6%;
-  font-size: 2.7em;
+  font-size: 3.5em;
   font-weight: 400;
+  font-family: sans-serif;
 }
 
 

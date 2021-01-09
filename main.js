@@ -19,12 +19,17 @@ var textError = document.querySelector('#text-error');
 form.addEventListener('click', function(event){
   if (event.target.className === 'category-button') {
     changeButtonColor();
-  } if (event.target.className === 'start-button') {
+  }
+  if (event.target.className === 'start-button') {
     formDataCollection();
     colorUpdate();
-    startTimer();
- }
+  }
+  if (event.target.className === 'start-timer-button') {
+    currentActivity.startTimer();
+    document.getElementById("start-timer-button").disabled = true;
+  }
 });
+
 //Functions
 function removeCategoryColor(){
   hide(litStudyButton);
@@ -99,7 +104,7 @@ function switchToTimer() {
       <label for="category-picked">${currentActivity.description}</label>
     </div>
     <div class="time-text">
-      <p id="timer">testField</p>
+      <h1 id="timer">${secToMinSec()}</h1>
     </div>
     <div class="start-timer">
       <button class="start-timer-button" id="start-timer-button" type="button">START</button>
@@ -117,62 +122,15 @@ function colorUpdate() {
   }
 }
 
-
 function secToMinSec() {
   var min = Math.floor(currentActivity.seconds / 60);
   currentActivity.seconds = currentActivity.seconds % 60;
   currentActivity.minutes = parseInt(currentActivity.minutes) + min;
+  if (currentActivity.seconds < 10) {
+    currentActivity.seconds = "0" + currentActivity.seconds;
+  }
+  if (currentActivity.minutes < 10) {
+    currentActivity.minutes = "0" + currentActivity.minutes;
+  }
+  return `${currentActivity.minutes}:${currentActivity.seconds}`
 }
-
-// var interval = setInterval(startTimer, 1000)
-
-function startTimer() {
-  if (currentActivity.minutes === 0 && currentActivity.seconds === 0) {
-    clearInterval(interval);
-
-  // } else if (currentAc) {
-  //   currentActivity.minutes - 1;
-  //   currentActivity.seconds = 60;
-  // }
-}
-  currentActivity.seconds = currentActivity.seconds -= 1;
-  var counter = `${currentActivity.minutes}:${currentActivity.seconds}`;
-  timer.innerHTML = counter;
-}
-
-// var a = 0;
-//   setInterval(counter, 1000);
-// function test() {
-//   // setInterval(test, 1000)
-//   // a++
-// }
-
-function timerTest() {
-  var timer = document.querySelector("#timer");
-  secToMinSec();
-  var counter = `${currentActivity.minutes}:${currentActivity.seconds}`;
-  timer.innerHTML = counter;
-}
-
-
-// let timerInterval = null;
-// document.getElementById("app").innerHTML = `...`
-// function startTimer() {
-//   timerInterval = setInterval(() => {
-//     // The amount of time passed increments by one
-//     timePassed = timePassed += 1;
-//     timeLeft = TIME_LIMIT - timePassed;
-//     // The time left label is updated
-//     document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
-//   }, 1000);
-// }
-
-
-
-
-//If the seconds input field is greater than 60 and the minutes input field is greater than 60 or theres a e, then
-//parent.addEventListener('click, function(event)'){
-//if (event.target.className === 'buttonName') {
-//run the change button function here
-//}
-//}
