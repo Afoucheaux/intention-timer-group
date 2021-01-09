@@ -22,7 +22,6 @@ form.addEventListener('click', function(event){
   } if (event.target.className === 'start-button') {
     formDataCollection();
     colorUpdate();
-    startTimer();
  }
 });
 //Functions
@@ -77,6 +76,7 @@ function formDataCollection(){
     var userCategory = currentCategory;
     currentActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
     switchToTimer();
+    test();
   }
 }
 
@@ -117,25 +117,26 @@ function colorUpdate() {
   }
 }
 
-
 function secToMinSec() {
   var min = Math.floor(currentActivity.seconds / 60);
   currentActivity.seconds = currentActivity.seconds % 60;
   currentActivity.minutes = parseInt(currentActivity.minutes) + min;
 }
 
-// var interval = setInterval(startTimer, 1000)
+function test() {
+  var interval = setInterval(startTimer, 1000)
+}
 
 function startTimer() {
   if (currentActivity.minutes === 0 && currentActivity.seconds === 0) {
     clearInterval(interval);
-
-  // } else if (currentAc) {
-  //   currentActivity.minutes - 1;
-  //   currentActivity.seconds = 60;
-  // }
-}
-  currentActivity.seconds = currentActivity.seconds -= 1;
+  }  else if (currentActivity.seconds <= 0) {
+    currentActivity.minutes = currentActivity.minutes - 1;
+    currentActivity.seconds = 60;
+    currentActivity.seconds = currentActivity.seconds -= 1;
+  } else {
+    currentActivity.seconds = currentActivity.seconds -= 1;
+  }
   var counter = `${currentActivity.minutes}:${currentActivity.seconds}`;
   timer.innerHTML = counter;
 }
@@ -146,33 +147,3 @@ function startTimer() {
 //   // setInterval(test, 1000)
 //   // a++
 // }
-
-function timerTest() {
-  var timer = document.querySelector("#timer");
-  secToMinSec();
-  var counter = `${currentActivity.minutes}:${currentActivity.seconds}`;
-  timer.innerHTML = counter;
-}
-
-
-// let timerInterval = null;
-// document.getElementById("app").innerHTML = `...`
-// function startTimer() {
-//   timerInterval = setInterval(() => {
-//     // The amount of time passed increments by one
-//     timePassed = timePassed += 1;
-//     timeLeft = TIME_LIMIT - timePassed;
-//     // The time left label is updated
-//     document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
-//   }, 1000);
-// }
-
-
-
-
-//If the seconds input field is greater than 60 and the minutes input field is greater than 60 or theres a e, then
-//parent.addEventListener('click, function(event)'){
-//if (event.target.className === 'buttonName') {
-//run the change button function here
-//}
-//}
