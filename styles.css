@@ -133,6 +133,10 @@ input[type=number] {
   color: #EFB7EC;
   font-size: .9em;
 }
+.log-activity {
+  display: flex;
+  justify-content: center;
+}
 
 /* ---- RIGHT BOX ---- */
 
@@ -196,6 +200,16 @@ input[type=number] {
   border-radius: 5px;
   border: none;
   color: #2B2733;
+}
+
+.log-button {
+  white-space: nowrap;
+    margin-top: 50%;
+    padding: 5.5% 50.5%;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.1em;
+    color: #2B2733;
 }
 
 #lit-exercise {

@@ -108,6 +108,9 @@ function switchToTimer() {
     </div>
     <div class="start-timer">
       <button class="start-timer-button" id="start-timer-button" type="button">START</button>
+    </div>
+    <div class="log-activity hidden" id="log-activity">
+      <button class="log-button" id="log-button">LOG ACTIVITY</button>
     </div>`;
 }
 
@@ -136,7 +139,7 @@ function secToMinSec() {
 }
 
 function timerHelper() {
-  var timer = document.querySelector("#timer");
+  var timer = document.querySelector('#timer');
   timer.innerHTML = secToMinSec();
   var interval = setInterval(time, 1000);
   function time() {
@@ -155,14 +158,17 @@ function timerHelper() {
 }
 
 function markHelper() {
-  console.log(currentActivity);
   if(parseInt(currentActivity.minutes) === 0 && parseInt(currentActivity.seconds) === 0){
-    document.getElementById("start-timer-button").innerText = "COMPLETE!";
+    document.getElementById('start-timer-button').innerText = "COMPLETE!";
     currentActivity.completed = true;
+    showLogButton();
   }
 }
 
-
+  function showLogButton(){
+    var logButton = document.querySelector('#log-activity');
+    unhide(logButton);
+}
 //then we'll change text (to congratulatory message) of start timer
 //var timer = document.querySelector("#timer");
 //unhide log activity button
