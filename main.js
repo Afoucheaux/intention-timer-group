@@ -22,7 +22,7 @@ form.addEventListener('click', function(event){
   } if (event.target.className === 'start-button') {
     formDataCollection();
     colorUpdate();
-    timerTest();
+    startTimer();
  }
 });
 //Functions
@@ -99,7 +99,7 @@ function switchToTimer() {
       <label for="category-picked">${currentActivity.description}</label>
     </div>
     <div class="time-text">
-      <p id="timer">testFeild</p>
+      <p id="timer">testField</p>
     </div>
     <div class="start-timer">
       <button class="start-timer-button" id="start-timer-button" type="button">START</button>
@@ -118,6 +118,34 @@ function colorUpdate() {
 }
 
 
+function secToMinSec() {
+  var min = Math.floor(currentActivity.seconds / 60);
+  currentActivity.seconds = currentActivity.seconds % 60;
+  currentActivity.minutes = parseInt(currentActivity.minutes) + min;
+}
+
+// var interval = setInterval(startTimer, 1000)
+
+function startTimer() {
+  if (currentActivity.minutes === 0 && currentActivity.seconds === 0) {
+    clearInterval(interval);
+
+  // } else if (currentAc) {
+  //   currentActivity.minutes - 1;
+  //   currentActivity.seconds = 60;
+  // }
+}
+  currentActivity.seconds = currentActivity.seconds -= 1;
+  var counter = `${currentActivity.minutes}:${currentActivity.seconds}`;
+  timer.innerHTML = counter;
+}
+
+// var a = 0;
+//   setInterval(counter, 1000);
+// function test() {
+//   // setInterval(test, 1000)
+//   // a++
+// }
 
 function timerTest() {
   var timer = document.querySelector("#timer");
@@ -126,33 +154,18 @@ function timerTest() {
   timer.innerHTML = counter;
 }
 
-function secToMinSec() {
-  var min = Math.floor(currentActivity.seconds / 60);
-  currentActivity.seconds = currentActivity.seconds % 60;
-  currentActivity.minutes = parseInt(currentActivity.minutes) + min;
-}
 
-
-// function convertSeconds(s) {
-//   var min = floor(s / 60);
-//   var sec = s % 60;
-//   return nf(min, 2) + ':' + nf(sec, 2);
+// let timerInterval = null;
+// document.getElementById("app").innerHTML = `...`
+// function startTimer() {
+//   timerInterval = setInterval(() => {
+//     // The amount of time passed increments by one
+//     timePassed = timePassed += 1;
+//     timeLeft = TIME_LIMIT - timePassed;
+//     // The time left label is updated
+//     document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
+//   }, 1000);
 // }
-//
-// function timeIt() {
-//    currentTime = floor((millis() - startTime) / 1000);
-//    // timer.html(convertSeconds(timeleft - currentTime));
-//    if (currentTime == timeleft) {
-//      clearInterval(interval);
-//    }
-//  }
-//
-// var timer = select('#timer');
-// timer.html(convertSeconds(timeleft - currentTime));
-
-
-// may still need
-// ${currentActivity.minutes}:${currentActivity.seconds}
 
 
 
