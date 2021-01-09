@@ -77,8 +77,6 @@ function formDataCollection(){
     var userCategory = currentCategory;
     currentActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
     switchToTimer();
-    test();
-    // startTimer();
   }
 }
 
@@ -123,15 +121,16 @@ function secToMinSec() {
   var min = Math.floor(currentActivity.seconds / 60);
   currentActivity.seconds = currentActivity.seconds % 60;
   currentActivity.minutes = parseInt(currentActivity.minutes) + min;
-}
-
-function test() {
-  var interval = setInterval(startTimer, 1000);
+  return `${currentActivity.minutes} : ${currentActivity.seconds}`
 }
 
 function startTimer() {
-  if (currentActivity.minutes <= 0 && currentActivity.seconds <= 0) {
-     clearInterval(test);
+  var timer = document.querySelector("#timer");
+  timer.innerHTML = secToMinSec();
+  var interval = setInterval(time, 1000);
+    function time() {
+      if (currentActivity.minutes <= 0 && currentActivity.seconds <= 0) {
+     clearInterval(interval);
   }  else if (currentActivity.seconds <= 0) {
     currentActivity.minutes = currentActivity.minutes - 1;
     currentActivity.seconds = 60;
@@ -139,6 +138,6 @@ function startTimer() {
   } else {
     currentActivity.seconds = currentActivity.seconds -= 1;
   }
-  var counter = `${currentActivity.minutes}:${currentActivity.seconds}`;
-  timer.innerHTML = counter;
-}
+  timer.innerHTML = secToMinSec();
+    }
+  }
