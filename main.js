@@ -99,7 +99,7 @@ function switchToTimer() {
       <label for="category-picked">${currentActivity.description}</label>
     </div>
     <div class="time-text">
-      <p id="timer">testField</p>
+      <h1 id="timer">testField</h1>
     </div>
     <div class="start-timer">
       <button class="start-timer-button" id="start-timer-button" type="button">START</button>
@@ -121,7 +121,13 @@ function secToMinSec() {
   var min = Math.floor(currentActivity.seconds / 60);
   currentActivity.seconds = currentActivity.seconds % 60;
   currentActivity.minutes = parseInt(currentActivity.minutes) + min;
-  return `${currentActivity.minutes} : ${currentActivity.seconds}`
+  if (currentActivity.seconds < 10) {
+    currentActivity.seconds = "0" + currentActivity.seconds;
+  }
+  if (currentActivity.minutes < 10) {
+    currentActivity.minutes = "0" + currentActivity.minutes;
+  }
+  return `${currentActivity.minutes}:${currentActivity.seconds}`
 }
 
 function startTimer() {
