@@ -19,12 +19,17 @@ var textError = document.querySelector('#text-error');
 form.addEventListener('click', function(event){
   if (event.target.className === 'category-button') {
     changeButtonColor();
-  } if (event.target.className === 'start-button') {
+  }
+  if (event.target.className === 'start-button') {
     formDataCollection();
     colorUpdate();
-    startTimer();
- }
+  }
+  if (event.target.className === 'start-timer-button') {
+    currentActivity.startTimer();
+    document.getElementById("start-timer-button").disabled = true;
+  }
 });
+
 //Functions
 function removeCategoryColor(){
   hide(litStudyButton);
@@ -99,7 +104,7 @@ function switchToTimer() {
       <label for="category-picked">${currentActivity.description}</label>
     </div>
     <div class="time-text">
-      <h1 id="timer">testField</h1>
+      <h1 id="timer">${secToMinSec()}</h1>
     </div>
     <div class="start-timer">
       <button class="start-timer-button" id="start-timer-button" type="button">START</button>
@@ -129,21 +134,3 @@ function secToMinSec() {
   }
   return `${currentActivity.minutes}:${currentActivity.seconds}`
 }
-
-function startTimer() {
-  var timer = document.querySelector("#timer");
-  timer.innerHTML = secToMinSec();
-  var interval = setInterval(time, 1000);
-    function time() {
-      if (currentActivity.minutes <= 0 && currentActivity.seconds <= 0) {
-     clearInterval(interval);
-  }  else if (currentActivity.seconds <= 0) {
-    currentActivity.minutes = currentActivity.minutes - 1;
-    currentActivity.seconds = 60;
-    currentActivity.seconds = currentActivity.seconds -= 1;
-  } else {
-    currentActivity.seconds = currentActivity.seconds -= 1;
-  }
-  timer.innerHTML = secToMinSec();
-    }
-  }
