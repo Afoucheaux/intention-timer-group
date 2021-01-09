@@ -20,8 +20,9 @@ form.addEventListener('click', function(event){
   if (event.target.className === 'category-button') {
     changeButtonColor();
   } if (event.target.className === 'start-button') {
-  formDataCollection();
-  colorUpdate();
+    formDataCollection();
+    colorUpdate();
+    startTimer();
  }
 });
 //Functions
@@ -45,9 +46,9 @@ function changeButtonColor() {
   unhide(litMeditateButton);
   currentCategory = 'Meditate';
  } else if (event.target.id === 'exercise') {
-   hide(exerciseButton);
-   unhide(litExerciseButton);
-   currentCategory = 'Exercise';
+  hide(exerciseButton);
+  unhide(litExerciseButton);
+  currentCategory = 'Exercise';
  }
 };
 
@@ -98,7 +99,7 @@ function switchToTimer() {
       <label for="category-picked">${currentActivity.description}</label>
     </div>
     <div class="time-text">
-      <p>${currentActivity.minutes}:${currentActivity.seconds}</p>
+      <p id="timer">testField</p>
     </div>
     <div class="start-timer">
       <button class="start-timer-button" id="start-timer-button" type="button">START</button>
@@ -115,6 +116,59 @@ function colorUpdate() {
     startTimerButton.style.border = "3px solid #FD8078";
   }
 }
+
+
+function secToMinSec() {
+  var min = Math.floor(currentActivity.seconds / 60);
+  currentActivity.seconds = currentActivity.seconds % 60;
+  currentActivity.minutes = parseInt(currentActivity.minutes) + min;
+}
+
+// var interval = setInterval(startTimer, 1000)
+
+function startTimer() {
+  if (currentActivity.minutes === 0 && currentActivity.seconds === 0) {
+    clearInterval(interval);
+
+  // } else if (currentAc) {
+  //   currentActivity.minutes - 1;
+  //   currentActivity.seconds = 60;
+  // }
+}
+  currentActivity.seconds = currentActivity.seconds -= 1;
+  var counter = `${currentActivity.minutes}:${currentActivity.seconds}`;
+  timer.innerHTML = counter;
+}
+
+// var a = 0;
+//   setInterval(counter, 1000);
+// function test() {
+//   // setInterval(test, 1000)
+//   // a++
+// }
+
+function timerTest() {
+  var timer = document.querySelector("#timer");
+  secToMinSec();
+  var counter = `${currentActivity.minutes}:${currentActivity.seconds}`;
+  timer.innerHTML = counter;
+}
+
+
+// let timerInterval = null;
+// document.getElementById("app").innerHTML = `...`
+// function startTimer() {
+//   timerInterval = setInterval(() => {
+//     // The amount of time passed increments by one
+//     timePassed = timePassed += 1;
+//     timeLeft = TIME_LIMIT - timePassed;
+//     // The time left label is updated
+//     document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
+//   }, 1000);
+// }
+
+
+
 
 //If the seconds input field is greater than 60 and the minutes input field is greater than 60 or theres a e, then
 //parent.addEventListener('click, function(event)'){
