@@ -22,6 +22,7 @@ form.addEventListener('click', function(event){
   } if (event.target.className === 'start-button') {
     formDataCollection();
     colorUpdate();
+    startTimer();
  }
 });
 //Functions
@@ -77,6 +78,7 @@ function formDataCollection(){
     currentActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
     switchToTimer();
     test();
+    // startTimer();
   }
 }
 
@@ -124,12 +126,12 @@ function secToMinSec() {
 }
 
 function test() {
-  var interval = setInterval(startTimer, 1000)
+  var interval = setInterval(startTimer, 1000);
 }
 
 function startTimer() {
-  if (currentActivity.minutes === 0 && currentActivity.seconds === 0) {
-    clearInterval(interval);
+  if (currentActivity.minutes <= 0 && currentActivity.seconds <= 0) {
+     clearInterval(test);
   }  else if (currentActivity.seconds <= 0) {
     currentActivity.minutes = currentActivity.minutes - 1;
     currentActivity.seconds = 60;
@@ -140,10 +142,3 @@ function startTimer() {
   var counter = `${currentActivity.minutes}:${currentActivity.seconds}`;
   timer.innerHTML = counter;
 }
-
-// var a = 0;
-//   setInterval(counter, 1000);
-// function test() {
-//   // setInterval(test, 1000)
-//   // a++
-// }
