@@ -121,21 +121,15 @@ function colorUpdate() {
 
 function timerTest() {
   var timer = document.querySelector("#timer");
-  updateTimer();
+  secToMinSec();
   var counter = `${currentActivity.minutes}:${currentActivity.seconds}`;
   timer.innerHTML = counter;
-  // function test() {
-  //   counter++;
-  //   timer.innerText = counter;
 }
 
-function updateTimer() {
+function secToMinSec() {
   var min = Math.floor(currentActivity.seconds / 60);
   currentActivity.seconds = currentActivity.seconds % 60;
-  console.log(min);
   currentActivity.minutes = parseInt(currentActivity.minutes) + min;
-  console.log(currentActivity.minutes);
-  console.log(min);
 }
 
 
