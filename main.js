@@ -1,5 +1,6 @@
 //Global Variables
-var currentCategory;
+var currentCategory = null;
+var currentActivity;
 //Category BUTTONS
 var studyButton = document.querySelector('#study');
 var meditateButton = document.querySelector('#meditate');
@@ -12,12 +13,15 @@ var minuteInputField = document.querySelector('#minutes-input');
 var secondsInputField = document.querySelector('#seconds-input');
 var activityButton = document.querySelector('#start-activity');
 var accomplishInput = document.querySelector('#accomplish-input');
+var textError = document.querySelector('#text-error');
+
 //Event Listeners
 form.addEventListener('click', function(event){
   if (event.target.className === 'category-button') {
     changeButtonColor();
   } if (event.target.className === 'start-button') {
   formDataCollection();
+  colorUpdate();
  }
 });
 //Functions
@@ -29,6 +33,7 @@ function removeCategoryColor(){
   unhide(exerciseButton);
   unhide(meditateButton);
 }
+
 function changeButtonColor() {
   removeCategoryColor();
  if (event.target.id === 'study'){
@@ -45,25 +50,70 @@ function changeButtonColor() {
    currentCategory = 'Exercise';
  }
 };
+
 function hide(element) {
   element.classList.add('hidden');
 }
+
 function unhide(element) {
   element.classList.remove('hidden');
 }
+
 function timeInputRestriction(){
   if (secondsInputField.value){
   }
 }
+
 function formDataCollection(){
   event.preventDefault();
   event.target === 'start-activity';
-  var userActivity = accomplishInput.value;
-  var userMinutes = minuteInputField.value;
-  var userSeconds = secondsInputField.value;
-  var userCategory = currentCategory;
-  var currentActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
-console.log(currentActivity);
+  if(checkInputs() === true) {
+    return;
+  } else {
+    var userActivity = accomplishInput.value;
+    var userMinutes = minuteInputField.value;
+    var userSeconds = secondsInputField.value;
+    var userCategory = currentCategory;
+    currentActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
+    switchToTimer();
+  }
+}
+
+function checkInputs() {
+  var error = false;
+  if(currentCategory === null) {
+    error = true;
+  } else if(accomplishInput.value === "") {
+    unhide(textError);
+    error = true;
+  } else if(minuteInputField.value === "" || secondsInputField.value === "") {
+    error = true;
+  }
+  return error;
+}
+
+function switchToTimer() {
+  form.innerHTML = `<div class="timer-view">
+    <div class="intention-input">
+      <label for="category-picked">${currentActivity.description}</label>
+    </div>
+    <div class="time-text">
+      <p>${currentActivity.minutes}:${currentActivity.seconds}</p>
+    </div>
+    <div class="start-timer">
+      <button class="start-timer-button" id="start-timer-button" type="button">START</button>
+    </div>`;
+}
+
+function colorUpdate() {
+  var startTimerButton = document.querySelector('#start-timer-button');
+  if(currentActivity.category === 'Study') {
+    startTimerButton.style.border = "3px solid #B3FD78";
+  } else if(currentActivity.category === 'Meditate') {
+    startTimerButton.style.border = "3px solid #C278FD";
+  } else if(currentActivity.category === 'Exercise') {
+    startTimerButton.style.border = "3px solid #FD8078";
+  }
 }
 
 //If the seconds input field is greater than 60 and the minutes input field is greater than 60 or theres a e, then
