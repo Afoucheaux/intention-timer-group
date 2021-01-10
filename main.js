@@ -98,7 +98,7 @@ function switchToTimer() {
       <label for="category-picked">${currentActivity.description}</label>
     </div>
     <div class="time-text">
-      <h1 id="timer">${secToMinSec()}</h1>
+      <h1 id="timer">${secToMinSec(currentActivity.minutes, currentActivity.seconds)}</h1>
     </div>
     <div class="start-timer">
       <button class="start-timer-button" id="startTimerButton" type="button">START</button>
@@ -119,42 +119,42 @@ function colorUpdate() {
   }
 }
 
-function secToMinSec() {
-  var min = Math.floor(currentActivity.seconds / 60);
-  currentActivity.seconds = currentActivity.seconds % 60;
-  currentActivity.minutes = parseInt(currentActivity.minutes) + min;
-  if (currentActivity.seconds < 10) {
-    currentActivity.seconds = "0" + currentActivity.seconds;
-  }
-  if (currentActivity.minutes < 10) {
-    currentActivity.minutes = "0" + currentActivity.minutes;
-  }
-  return `${currentActivity.minutes}:${currentActivity.seconds}`
+function secToMinSec(minutes, seconds) {
+  var min = parseInt(minutes);
+  var sec = parseInt(seconds);
+  var convertMin = Math.floor(sec / 60);
+  sec = (sec % 60).toString().padStart(2, 0);
+  min = (min + convertMin).toString().padStart(2, 0);
+  return `${min}:${sec}`
 }
 
-function timerHelper() {
+function timeUpdate(min, sec) {
   var timer = document.querySelector('#timer');
-  timer.innerHTML = secToMinSec();
-  var interval = setInterval(time, 1000);
-  function time() {
-    if (currentActivity.minutes <= 0 && currentActivity.seconds <= 0) {
-    clearInterval(interval);
-    currentActivity.markComplete();
-  } else if (currentActivity.seconds <= 0) {
-    currentActivity.minutes = currentActivity.minutes - 1;
-    currentActivity.seconds = 60;
-    currentActivity.seconds = currentActivity.seconds -= 1;
-  } else {
-    currentActivity.seconds = currentActivity.seconds -= 1;
-  }
-  timer.innerHTML = secToMinSec();
-  }
+  timer.innerHTML = secToMinSec(min, sec);
 }
+
+// function timerHelper() {
+//   var timer = document.querySelector('#timer');
+//   timer.innerHTML = secToMinSec();
+//   var interval = setInterval(time, 1000);
+//   function time() {
+//     if (currentActivity.minutes <= 0 && currentActivity.seconds <= 0) {
+//     clearInterval(interval);
+//     currentActivity.markComplete();
+//   } else if (currentActivity.seconds <= 0) {
+//     currentActivity.minutes = currentActivity.minutes - 1;
+//     currentActivity.seconds = 60;
+//     currentActivity.seconds = currentActivity.seconds -= 1;
+//   } else {
+//     currentActivity.seconds = currentActivity.seconds -= 1;
+//   }
+//   timer.innerHTML = secToMinSec();
+//   }
+// }
 
 function markHelper() {
   if(parseInt(currentActivity.minutes) === 0 && parseInt(currentActivity.seconds) === 0){
     document.getElementById('startTimerButton').innerText = "COMPLETE!";
-    currentActivity.completed = true;
     showLogButton();
   }
 }
