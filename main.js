@@ -3,19 +3,21 @@ var currentCategory = null;
 var currentActivity;
 var savedActivities = [];
 //Query Selectors
-var studyButton = document.querySelector('#study');
-var meditateButton = document.querySelector('#meditate');
+
+var accomplishInput = document.querySelector('#accomplishInput');
+var activityButton = document.querySelector('#startActivity');
+var defaultRightSide = document.querySelector('#originalPage');
 var exerciseButton = document.querySelector('#exercise');
 var form = document.querySelector('#form');
-var litStudyButton = document.querySelector('#lit-study');
-var litMeditateButton = document.querySelector('#lit-meditate');
-var litExerciseButton = document.querySelector('#lit-exercise');
-var minuteInputField = document.querySelector('#minutes-input');
-var secondsInputField = document.querySelector('#seconds-input');
-var activityButton = document.querySelector('#start-activity');
-var accomplishInput = document.querySelector('#accomplish-input');
-var textError = document.querySelector('#text-error');
-var defaultRightSide = document.querySelector('#original-page')
+var litExerciseButton = document.querySelector('#litExercise');
+var litMeditateButton = document.querySelector('#litMeditate');
+var litStudyButton = document.querySelector('#litStudy');
+var studyButton = document.querySelector('#study');
+var meditateButton = document.querySelector('#meditate');
+var minuteInputField = document.querySelector('#minutesInput');
+var secondsInputField = document.querySelector('#secondsInput');
+var textError = document.querySelector('#textError');
+
 
 //Event Listeners
 form.addEventListener('click', function(event){
@@ -28,7 +30,7 @@ form.addEventListener('click', function(event){
   }
   if (event.target.className === 'start-timer-button') {
     currentActivity.startTimer();
-    document.getElementById('start-timer-button').disabled = true;
+    document.getElementById('startTimerButton').disabled = true;
   }
   if (event.target.className === 'log-button') {
     saveActivity();
@@ -62,22 +64,9 @@ function changeButtonColor() {
  }
 };
 
-function hide(element) {
-  element.classList.add('hidden');
-}
-
-function unhide(element) {
-  element.classList.remove('hidden');
-}
-
-function timeInputRestriction(){
-  if (secondsInputField.value){
-  }
-}
-
 function formDataCollection(){
   event.preventDefault();
-  event.target === 'start-activity';
+  event.target === 'startActivity';
   if(checkInputs() === true) {
     return;
   } else {
@@ -112,15 +101,15 @@ function switchToTimer() {
       <h1 id="timer">${secToMinSec()}</h1>
     </div>
     <div class="start-timer">
-      <button class="start-timer-button" id="start-timer-button" type="button">START</button>
+      <button class="start-timer-button" id="startTimerButton" type="button">START</button>
     </div>
-    <div class="log-activity hidden" id="log-activity">
-      <button class="log-button" id="log-button">LOG ACTIVITY</button>
+    <div class="log-activity hidden" id="logActivity">
+      <button class="log-button" id="logButton">LOG ACTIVITY</button>
     </div>`;
 }
 
 function colorUpdate() {
-  var startTimerButton = document.querySelector('#start-timer-button');
+  var startTimerButton = document.querySelector('#startTimerButton');
   if(currentActivity.category === 'Study') {
     startTimerButton.style.border = "3px solid #B3FD78";
   } else if(currentActivity.category === 'Meditate') {
@@ -164,25 +153,38 @@ function timerHelper() {
 
 function markHelper() {
   if(parseInt(currentActivity.minutes) === 0 && parseInt(currentActivity.seconds) === 0){
-    document.getElementById('start-timer-button').innerText = "COMPLETE!";
+    document.getElementById('startTimerButton').innerText = "COMPLETE!";
     currentActivity.completed = true;
     showLogButton();
   }
 }
 
 function showLogButton(){
-    var logButton = document.querySelector('#log-activity');
+    var logButton = document.querySelector('#logActivity');
     unhide(logButton);
 }
 
 function saveActivity(){
   event.preventDefault();
-  defaultRightSide.innerHTML = `<article class="activity-container" id="past-activity">
+  defaultRightSide.innerHTML = `<article class="activity-container" id="pastActivity">
     <div class="style-box">
       <p class="logged-category">${currentActivity.category}</p>
       <p class="logged-time">${currentActivity.originalMinutes} MIN ${currentActivity.originalSeconds} SECONDS</p>
     </div>
     <p class="logged-description">${currentActivity.description}</p>
   </article>`;
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
+function unhide(element) {
+  element.classList.remove('hidden');
+}
+
+function timeInputRestriction(){
+  if (secondsInputField.value){
+  }
 }
 //Build the timer in the class as a method as this.minutes and this.seconds
