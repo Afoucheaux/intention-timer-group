@@ -3,7 +3,9 @@ class Activity {
     this.category = cat;
     this.description = act;
     this.minutes = min;
+    this.originalMinutes = min;
     this.seconds = sec;
+    this.originalSeconds = sec;
     this.completed = false;
     this.id = Date.now();
   }

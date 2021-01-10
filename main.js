@@ -1,6 +1,7 @@
 //Global Variables
 var currentCategory = null;
 var currentActivity;
+var savedActivities = [];
 //Query Selectors
 var studyButton = document.querySelector('#study');
 var meditateButton = document.querySelector('#meditate');
@@ -14,6 +15,7 @@ var secondsInputField = document.querySelector('#seconds-input');
 var activityButton = document.querySelector('#start-activity');
 var accomplishInput = document.querySelector('#accomplish-input');
 var textError = document.querySelector('#text-error');
+var defaultRightSide = document.querySelector('#original-page')
 
 //Event Listeners
 form.addEventListener('click', function(event){
@@ -26,7 +28,10 @@ form.addEventListener('click', function(event){
   }
   if (event.target.className === 'start-timer-button') {
     currentActivity.startTimer();
-    document.getElementById("start-timer-button").disabled = true;
+    document.getElementById('start-timer-button').disabled = true;
+  }
+  if (event.target.className === 'log-button') {
+    saveActivity();
   }
 });
 
@@ -165,12 +170,19 @@ function markHelper() {
   }
 }
 
-  function showLogButton(){
+function showLogButton(){
     var logButton = document.querySelector('#log-activity');
     unhide(logButton);
 }
 
-//for loop css styling; verify properties functionality refactor
-//invoke log activity button on main js page
-//html target of log activity button wtih start timer button (line 11)
-//should we make it a DOM element?
+function saveActivity(){
+  event.preventDefault();
+  defaultRightSide.innerHTML = `<article class="activity-container" id="past-activity">
+    <div class="style-box">
+      <p class="logged-category">${currentActivity.category}</p>
+      <p class="logged-time">${currentActivity.originalMinutes} MIN ${currentActivity.originalSeconds} SECONDS</p>
+    </div>
+    <p class="logged-description">${currentActivity.description}</p>
+  </article>`;
+}
+//Build the timer in the class as a method as this.minutes and this.seconds
