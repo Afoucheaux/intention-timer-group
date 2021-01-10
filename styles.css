@@ -13,6 +13,7 @@ html {
   background-color: #2B2733;
 }
 
+
 /* ---- HEADER ---- */
 
 header {
@@ -34,6 +35,7 @@ input[type=number] {
   padding: 20px 0 20px 0;
 }
 
+
 /* ---- BOX LAYOUT ---- */
 .main {
   display: flex;
@@ -42,10 +44,9 @@ input[type=number] {
   color: #fff;
 }
 
-
 .title {
   color: #CBC9CF;
-  margin: 3% 0 0% 3%;
+  margin: 3% 0% 0% 3%;
 }
 
 
@@ -76,24 +77,6 @@ input[type=number] {
   flex-direction: column;
 }
 
-.timer-field {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-}
-
-.field-left {
-  display: flex;
-  flex-direction: column;
-  width: 43%;
-}
-
-.field-right {
-  display: flex;
-  flex-direction: column;
-  width: 43%;
-}
-
 .accomplish-title {
   margin-bottom: 5%;
 }
@@ -103,7 +86,25 @@ input[type=number] {
   outline: 0;
   background-color: #46424D;
   border-bottom: 1px solid #fff;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
+}
+
+.timer-field {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.field-left {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.field-right {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
 }
 
 .time {
@@ -131,12 +132,14 @@ input[type=number] {
 .error-code {
   margin-bottom: 10%;
   color: #EFB7EC;
-  font-size: .9em;
+  font-size: 1em;
 }
+
 .log-activity {
   display: flex;
   justify-content: center;
 }
+
 
 /* ---- RIGHT BOX ---- */
 
@@ -194,6 +197,7 @@ input[type=number] {
   border-top-style: none;
 }
 
+
 /* ---- BUTTONS ---- */
 .study-img,
 .meditate-img,
@@ -248,14 +252,17 @@ input[type=number] {
   border-color: #FD8078;
   color: #FD8078;
 }
+
 #litStudy {
   border-color: #B3FD78;
   color: #B3FD78;
 }
+
 #litMeditate {
   border-color: #C278FD;
   color: #C278FD;
 }
+
 
 /* ---- TIMER ---- */
 .timer-view {
@@ -270,7 +277,7 @@ input[type=number] {
   height: 30vh;
   background-color: #46424D;
   border: 3px solid #FFF;
-  font-size: 1.4em;
+  font-size: 1.5em;
   color: #FFF;
   outline: none;
 }
