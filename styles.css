@@ -149,7 +149,7 @@ input[type=number] {
 }
 
 .right-title {
-  margin: 7% 0% 7% 5%;
+  margin: 5% 0% 0% 5%;
 }
 
 .default {
@@ -160,6 +160,38 @@ input[type=number] {
 
 .default-message {
   margin: 1%;
+}
+
+.activity-container {
+  margin: 2% 3% 0% 5%;
+  border-radius: 5px;
+  box-shadow: #26222D;
+  padding: 5%;
+  width: 90%;
+  background-color: #46424D;
+  align-items: center;
+}
+
+.logged-category {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.logged-time {
+  font-size: 1.1em;
+  margin: 0% 0% 3% 0%;
+}
+
+.logged-description {
+  font-size: 1em;
+}
+
+.style-box {
+  border: solid 4px #C278FD;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-top-style: none;
 }
 
 /* ---- BUTTONS ---- */

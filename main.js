@@ -169,9 +169,7 @@ function markHelper() {
     var logButton = document.querySelector('#log-activity');
     unhide(logButton);
 }
-//then we'll change text (to congratulatory message) of start timer
-//var timer = document.querySelector("#timer");
-//unhide log activity button
+
 //for loop css styling; verify properties functionality refactor
 //invoke log activity button on main js page
 //html target of log activity button wtih start timer button (line 11)
