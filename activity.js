@@ -3,9 +3,7 @@ class Activity {
     this.category = cat;
     this.description = act;
     this.minutes = min;
-    this.originalMinutes = min;
     this.seconds = sec;
-    this.originalSeconds = sec;
     this.completed = false;
     this.id = Date.now();
   }
@@ -15,7 +13,6 @@ class Activity {
     var interval = setInterval(time, 1000);
     function time() {
       if (min <= 0 && sec <= 0) {
-      this.completed = true;
       markHelper();
       return clearInterval(interval);
     } else if (sec <= 0) {
@@ -32,6 +29,7 @@ class Activity {
 
   markComplete() {
     markHelper();
+    this.completed = true;
   }
 
   saveToStorage() {

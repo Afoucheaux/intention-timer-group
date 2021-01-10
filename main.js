@@ -133,30 +133,9 @@ function timeUpdate(min, sec) {
   timer.innerHTML = secToMinSec(min, sec);
 }
 
-// function timerHelper() {
-//   var timer = document.querySelector('#timer');
-//   timer.innerHTML = secToMinSec();
-//   var interval = setInterval(time, 1000);
-//   function time() {
-//     if (currentActivity.minutes <= 0 && currentActivity.seconds <= 0) {
-//     clearInterval(interval);
-//     currentActivity.markComplete();
-//   } else if (currentActivity.seconds <= 0) {
-//     currentActivity.minutes = currentActivity.minutes - 1;
-//     currentActivity.seconds = 60;
-//     currentActivity.seconds = currentActivity.seconds -= 1;
-//   } else {
-//     currentActivity.seconds = currentActivity.seconds -= 1;
-//   }
-//   timer.innerHTML = secToMinSec();
-//   }
-// }
-
 function markHelper() {
-  if(parseInt(currentActivity.minutes) === 0 && parseInt(currentActivity.seconds) === 0){
     document.getElementById('startTimerButton').innerText = "COMPLETE!";
     showLogButton();
-  }
 }
 
 function showLogButton(){
@@ -169,7 +148,7 @@ function saveActivity(){
   defaultRightSide.innerHTML = `<article class="activity-container" id="pastActivity">
     <div class="style-box">
       <p class="logged-category">${currentActivity.category}</p>
-      <p class="logged-time">${currentActivity.originalMinutes} MIN ${currentActivity.originalSeconds} SECONDS</p>
+      <p class="logged-time">${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
     </div>
     <p class="logged-description">${currentActivity.description}</p>
   </article>`;
