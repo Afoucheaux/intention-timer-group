@@ -133,6 +133,10 @@ input[type=number] {
   color: #EFB7EC;
   font-size: .9em;
 }
+.log-activity {
+  display: flex;
+  justify-content: center;
+}
 
 /* ---- RIGHT BOX ---- */
 
@@ -145,7 +149,7 @@ input[type=number] {
 }
 
 .right-title {
-  margin: 7% 0% 7% 5%;
+  margin: 5% 0% 0% 5%;
 }
 
 .default {
@@ -156,6 +160,38 @@ input[type=number] {
 
 .default-message {
   margin: 1%;
+}
+
+.activity-container {
+  margin: 2% 3% 2% 5%;
+  border-radius: 5px;
+  box-shadow: #26222D;
+  padding: 3%;
+  width: 90%;
+  background-color: #46424D;
+  align-items: center;
+}
+
+.logged-category {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.logged-time {
+  font-size: 1.1em;
+  margin: 0% 0% 3% 0%;
+}
+
+.logged-description {
+  font-size: 1em;
+}
+
+.style-box {
+  border: solid 4px #C278FD;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-top-style: none;
 }
 
 /* ---- BUTTONS ---- */
@@ -196,6 +232,16 @@ input[type=number] {
   border-radius: 5px;
   border: none;
   color: #2B2733;
+}
+
+.log-button {
+  white-space: nowrap;
+    margin-top: 50%;
+    padding: 5.5% 50.5%;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.1em;
+    color: #2B2733;
 }
 
 #lit-exercise {

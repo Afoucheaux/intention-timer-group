@@ -1,7 +1,8 @@
 //Global Variables
 var currentCategory = null;
 var currentActivity;
-//Category BUTTONS
+var savedActivities = [];
+//Query Selectors
 var studyButton = document.querySelector('#study');
 var meditateButton = document.querySelector('#meditate');
 var exerciseButton = document.querySelector('#exercise');
@@ -14,6 +15,7 @@ var secondsInputField = document.querySelector('#seconds-input');
 var activityButton = document.querySelector('#start-activity');
 var accomplishInput = document.querySelector('#accomplish-input');
 var textError = document.querySelector('#text-error');
+var defaultRightSide = document.querySelector('#original-page')
 
 //Event Listeners
 form.addEventListener('click', function(event){
@@ -26,7 +28,10 @@ form.addEventListener('click', function(event){
   }
   if (event.target.className === 'start-timer-button') {
     currentActivity.startTimer();
-    document.getElementById("start-timer-button").disabled = true;
+    document.getElementById('start-timer-button').disabled = true;
+  }
+  if (event.target.className === 'log-button') {
+    saveActivity();
   }
 });
 
@@ -108,6 +113,9 @@ function switchToTimer() {
     </div>
     <div class="start-timer">
       <button class="start-timer-button" id="start-timer-button" type="button">START</button>
+    </div>
+    <div class="log-activity hidden" id="log-activity">
+      <button class="log-button" id="log-button">LOG ACTIVITY</button>
     </div>`;
 }
 
@@ -134,3 +142,47 @@ function secToMinSec() {
   }
   return `${currentActivity.minutes}:${currentActivity.seconds}`
 }
+
+function timerHelper() {
+  var timer = document.querySelector('#timer');
+  timer.innerHTML = secToMinSec();
+  var interval = setInterval(time, 1000);
+  function time() {
+    if (currentActivity.minutes <= 0 && currentActivity.seconds <= 0) {
+    clearInterval(interval);
+    currentActivity.markComplete();
+  } else if (currentActivity.seconds <= 0) {
+    currentActivity.minutes = currentActivity.minutes - 1;
+    currentActivity.seconds = 60;
+    currentActivity.seconds = currentActivity.seconds -= 1;
+  } else {
+    currentActivity.seconds = currentActivity.seconds -= 1;
+  }
+  timer.innerHTML = secToMinSec();
+  }
+}
+
+function markHelper() {
+  if(parseInt(currentActivity.minutes) === 0 && parseInt(currentActivity.seconds) === 0){
+    document.getElementById('start-timer-button').innerText = "COMPLETE!";
+    currentActivity.completed = true;
+    showLogButton();
+  }
+}
+
+function showLogButton(){
+    var logButton = document.querySelector('#log-activity');
+    unhide(logButton);
+}
+
+function saveActivity(){
+  event.preventDefault();
+  defaultRightSide.innerHTML = `<article class="activity-container" id="past-activity">
+    <div class="style-box">
+      <p class="logged-category">${currentActivity.category}</p>
+      <p class="logged-time">${currentActivity.originalMinutes} MIN ${currentActivity.originalSeconds} SECONDS</p>
+    </div>
+    <p class="logged-description">${currentActivity.description}</p>
+  </article>`;
+}
+//Build the timer in the class as a method as this.minutes and this.seconds
