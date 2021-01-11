@@ -9,6 +9,7 @@ var activityButton = document.querySelector('#startActivity');
 var defaultRightSide = document.querySelector('#originalPage');
 var exerciseButton = document.querySelector('#exercise');
 var form = document.querySelector('#form');
+var leftBox = document.querySelector('#leftBox');
 var leftTitle = document.querySelector('#leftTitle');
 var litExerciseButton = document.querySelector('#litExercise');
 var litMeditateButton = document.querySelector('#litMeditate');
@@ -36,9 +37,14 @@ form.addEventListener('click', function(event){
     currentActivity.markComplete();
     saveActivity(savedActivities);
     changeCardColor();
-    console.log(savedActivities);
+  }
+  if (event.target.className === 'create-button') {
+    // returnHome();
+    // window.addEventListener('load', saveActivity);
   }
 });
+
+
 
 //Functions
 function removeCategoryColor(){
@@ -187,3 +193,7 @@ function changeCardColor() {
     cardStyle.classList.add('style-box-exercise');
   }
 }
+
+// function returnHome() {
+//   event.preventDefault();
+// }
