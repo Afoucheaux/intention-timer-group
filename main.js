@@ -9,6 +9,8 @@ var activityButton = document.querySelector('#startActivity');
 var defaultRightSide = document.querySelector('#originalPage');
 var exerciseButton = document.querySelector('#exercise');
 var form = document.querySelector('#form');
+var leftBox = document.querySelector('#leftBox');
+var leftTitle = document.querySelector('#leftTitle');
 var litExerciseButton = document.querySelector('#litExercise');
 var litMeditateButton = document.querySelector('#litMeditate');
 var litStudyButton = document.querySelector('#litStudy');
@@ -17,7 +19,6 @@ var meditateButton = document.querySelector('#meditate');
 var minuteInputField = document.querySelector('#minutesInput');
 var secondsInputField = document.querySelector('#secondsInput');
 var textError = document.querySelector('#textError');
-
 
 //Event Listeners
 form.addEventListener('click', function(event){
@@ -33,9 +34,17 @@ form.addEventListener('click', function(event){
     document.getElementById('startTimerButton').disabled = true;
   }
   if (event.target.className === 'log-button') {
-    saveActivity();
+    currentActivity.markComplete();
+    saveActivity(savedActivities);
+    changeCardColor();
+  }
+  if (event.target.className === 'create-button') {
+    // returnHome();
+    // window.addEventListener('load', saveActivity);
   }
 });
+
+
 
 //Functions
 function removeCategoryColor(){
@@ -109,6 +118,7 @@ function switchToTimer() {
 }
 
 function colorUpdate() {
+  leftTitle.innerText = 'Current Activity';
   var startTimerButton = document.querySelector('#startTimerButton');
   if(currentActivity.category === 'Study') {
     startTimerButton.style.border = "3px solid #B3FD78";
@@ -143,15 +153,19 @@ function showLogButton(){
     unhide(logButton);
 }
 
-function saveActivity(){
+function saveActivity(array){
   event.preventDefault();
-  defaultRightSide.innerHTML = `<article class="activity-container" id="pastActivity">
-    <div class="style-box">
-      <p class="logged-category">${currentActivity.category}</p>
-      <p class="logged-time">${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+  defaultRightSide.innerHTML = "";
+  for(var i = 0; i < array.length; i++) {
+    defaultRightSide.innerHTML += `<article class="activity-container" id="pastActivity">
+    <div class="style-box" id="cardStyle">
+    <p class="logged-category">${array[i].category}</p>
+    <p class="logged-time">${array[i].minutes} MIN ${array[i].seconds} SECONDS</p>
     </div>
-    <p class="logged-description">${currentActivity.description}</p>
-  </article>`;
+    <p class="logged-description">${array[i].description}</p>
+    </article>`;
+  }
+  displayNewActivity();
 }
 
 function hide(element) {
@@ -162,8 +176,24 @@ function unhide(element) {
   element.classList.remove('hidden');
 }
 
-function timeInputRestriction(){
-  if (secondsInputField.value){
+function displayNewActivity() {
+leftTitle.innerText = 'Completed Activity';
+form.innerHTML = `<div class="create-view">
+  <button class="create-button" id="createButton">CREATE A NEW ACTIVITY</button>
+</div>`;
+}
+
+function changeCardColor() {
+  var cardStyle = document.querySelector('#cardStyle');
+  if(currentActivity.category === 'Study') {
+    cardStyle.classList.add('style-box-study');
+  } else if(currentActivity.category === 'Meditate') {
+    cardStyle.classList.add('style-box-meditate');
+  } else if(currentActivity.category === 'Exercise') {
+    cardStyle.classList.add('style-box-exercise');
   }
 }
-//Build the timer in the class as a method as this.minutes and this.seconds
+
+// function returnHome() {
+//   event.preventDefault();
+// }

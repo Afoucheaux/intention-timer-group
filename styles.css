@@ -22,6 +22,9 @@ header {
   background-color: #46424D;
 }
 
+button:hover {
+  cursor: pointer;
+}
 input[type=text],
 input[type=number] {
   color: #fff;
@@ -140,6 +143,22 @@ input[type=number] {
   justify-content: center;
 }
 
+.create-button {
+  white-space: nowrap;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.1em;
+  color: #2B2733;
+  margin-top: 8%;
+  padding: 2% 20%;
+  font-size: 1.2em;
+}
+
+.create-view {
+  display: flex;
+  justify-content: center;
+}
+
 
 /* ---- RIGHT BOX ---- */
 
@@ -190,8 +209,22 @@ input[type=number] {
   font-size: 1em;
 }
 
-.style-box {
-  border: solid 4px #C278FD;
+.style-box-study {
+  border: 4px solid #B3FD78;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-top-style: none;
+}
+
+.style-box-meditate {
+  border: 4px solid #C278FD;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-top-style: none;
+}
+
+.style-box-exercise {
+  border: 4px solid #FD8078;
   border-left-style: none;
   border-bottom-style: none;
   border-top-style: none;

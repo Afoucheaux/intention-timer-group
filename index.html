@@ -12,30 +12,30 @@
       <h1 class="h1">INTENTION TIMER</h1>
     </header>
     <main class="main">
-      <section class="left">
-        <h1 class="left-title title">New Activity</h1>
+      <section class="left" id="leftBox">
+        <h1 class="left-title title" id="leftTitle">New Activity</h1>
         <form class="activity" id="form">
-          <label class="category">Select a category:</label>
-          <div class="top-buttons">
-            <button type="button" class="category-button" id="study"><img class="study-img" src="assets/study.svg" alt="light bulb for insite">Study</button>
-            <button type="button" class="category-button hidden" id="litStudy"><img class="lit-study-img" src="assets/study-active.svg" alt="light bulb for insite">Study</button>
-            <button type="button" class="category-button" id="meditate"><img class="meditate-img" src="assets/meditate.svg" alt="lotus petal">Meditate</button>
-            <button type="button" class="category-button hidden" id="litMeditate"><img class="lit-meditate-img" src="assets/meditate-active.svg" alt="light bulb for insite">Meditate</button>
-            <button type="button" class="category-button" id="exercise"><img class="exercise-img" src="assets/exercise.svg" alt="sneakers">Exercise</button>
-            <button type="button" class="category-button hidden" id="litExercise"><img class="lit-exercise-img" src="assets/exercise-active.svg" alt="light bulb for insite">Excercise</button>
-          </div>
-          <div class="accomplish">
-            <label class="accomplish-title">What would you like to accomplish during this time?</label>
-            <input type="text" class="input-field" id="accomplishInput">
-            <label class="error-code hidden" id="textError"><img class="error-img" src="assets/warning.svg" alt="error message">A description is required.</label>
-          </div>
-          <div class="timer-field">
-            <div class="field-left">
-              <label class="time">Minutes</label>
-              <input type="number" class="time-input" id="minutesInput" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189">
+            <label class="category">Select a category:</label>
+            <div class="top-buttons">
+              <button type="button" class="category-button" id="study"><img class="study-img" src="assets/study.svg" alt="light bulb for insite">Study</button>
+              <button type="button" class="category-button hidden" id="litStudy"><img class="lit-study-img" src="assets/study-active.svg" alt="light bulb for insite">Study</button>
+              <button type="button" class="category-button" id="meditate"><img class="meditate-img" src="assets/meditate.svg" alt="lotus petal">Meditate</button>
+              <button type="button" class="category-button hidden" id="litMeditate"><img class="lit-meditate-img" src="assets/meditate-active.svg" alt="light bulb for insite">Meditate</button>
+              <button type="button" class="category-button" id="exercise"><img class="exercise-img" src="assets/exercise.svg" alt="sneakers">Exercise</button>
+              <button type="button" class="category-button hidden" id="litExercise"><img class="lit-exercise-img" src="assets/exercise-active.svg" alt="light bulb for insite">Excercise</button>
             </div>
-            <div class="field-right">
-              <label class="seconds">Seconds</label>
+            <div class="accomplish">
+              <label class="accomplish-title">What would you like to accomplish during this time?</label>
+              <input type="text" class="input-field" id="accomplishInput">
+              <label class="error-code hidden" id="textError"><img class="error-img" src="assets/warning.svg" alt="error message">A description is required.</label>
+            </div>
+            <div class="timer-field">
+              <div class="field-left">
+                <label class="time">Minutes</label>
+                <input type="number" class="time-input" id="minutesInput" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189">
+              </div>
+              <div class="field-right">
+                <label class="seconds">Seconds</label>
               <input type="number" class="time-input" id="secondsInput" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189">
             </div>
           </div>

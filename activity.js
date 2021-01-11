@@ -14,11 +14,10 @@ class Activity {
     function time() {
       if (min <= 0 && sec <= 0) {
       markHelper();
-      return clearInterval(interval);
+      clearInterval(interval);
     } else if (sec <= 0) {
       min = min - 1;
-      sec = 60;
-      sec = sec - 1;
+      sec = 59;
     } else {
       sec = sec - 1;
     }
@@ -30,6 +29,7 @@ class Activity {
   markComplete() {
     markHelper();
     this.completed = true;
+    savedActivities.push(this);
   }
 
   saveToStorage() {
