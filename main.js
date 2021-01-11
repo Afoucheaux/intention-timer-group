@@ -33,8 +33,10 @@ form.addEventListener('click', function(event){
     document.getElementById('startTimerButton').disabled = true;
   }
   if (event.target.className === 'log-button') {
-    saveActivity();
+    currentActivity.markComplete();
+    saveActivity(savedActivities);
     changeCardColor();
+    console.log(savedActivities);
   }
 });
 
@@ -145,15 +147,17 @@ function showLogButton(){
     unhide(logButton);
 }
 
-function saveActivity(){
+function saveActivity(array){
   event.preventDefault();
-  defaultRightSide.innerHTML = `<article class="activity-container" id="pastActivity">
+  for(var i = 0; i < array.length; i++) {
+    defaultRightSide.innerHTML += `<article class="activity-container" id="pastActivity">
     <div class="style-box" id="cardStyle">
-      <p class="logged-category">${currentActivity.category}</p>
-      <p class="logged-time">${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
+    <p class="logged-category">${array[i].category}</p>
+    <p class="logged-time">${array[i].minutes} MIN ${array[i].seconds} SECONDS</p>
     </div>
-    <p class="logged-description">${currentActivity.description}</p>
-  </article>`;
+    <p class="logged-description">${array[i].description}</p>
+    </article>`;
+  }
   displayNewActivity();
 }
 
