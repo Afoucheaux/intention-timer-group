@@ -22,6 +22,9 @@ header {
   background-color: #46424D;
 }
 
+button:hover {
+  cursor: pointer;
+}
 input[type=text],
 input[type=number] {
   color: #fff;

@@ -9,6 +9,7 @@ var activityButton = document.querySelector('#startActivity');
 var defaultRightSide = document.querySelector('#originalPage');
 var exerciseButton = document.querySelector('#exercise');
 var form = document.querySelector('#form');
+var leftTitle = document.querySelector('#leftTitle');
 var litExerciseButton = document.querySelector('#litExercise');
 var litMeditateButton = document.querySelector('#litMeditate');
 var litStudyButton = document.querySelector('#litStudy');
@@ -108,6 +109,7 @@ function switchToTimer() {
 }
 
 function colorUpdate() {
+  leftTitle.innerText = 'Current Activity';
   var startTimerButton = document.querySelector('#startTimerButton');
   if(currentActivity.category === 'Study') {
     startTimerButton.style.border = "3px solid #B3FD78";
@@ -162,12 +164,8 @@ function unhide(element) {
   element.classList.remove('hidden');
 }
 
-function timeInputRestriction(){
-  if (secondsInputField.value){
-  }
-}
-
 function displayNewActivity() {
+leftTitle.innerText = 'Completed Activity';
 form.innerHTML = `<div class="create-view">
   <button class="create-button" id="createButton">CREATE A NEW ACTIVITY</button>
 </div>`;
