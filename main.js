@@ -17,7 +17,7 @@ var meditateButton = document.querySelector('#meditate');
 var minuteInputField = document.querySelector('#minutesInput');
 var secondsInputField = document.querySelector('#secondsInput');
 var textError = document.querySelector('#textError');
-
+var newActivityView= document.querySelector('#createNew');
 
 //Event Listeners
 form.addEventListener('click', function(event){
@@ -166,4 +166,7 @@ function timeInputRestriction(){
   if (secondsInputField.value){
   }
 }
-//Build the timer in the class as a method as this.minutes and this.seconds
+
+function displayNewActivity() {
+
+}

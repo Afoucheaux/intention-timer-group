@@ -140,6 +140,22 @@ input[type=number] {
   justify-content: center;
 }
 
+.create-button {
+  white-space: nowrap;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.1em;
+  color: #2B2733;
+  margin-top: 8%;
+  padding: 2% 20%;
+  font-size: 1.2em;
+}
+
+.create-view {
+  display: flex;
+  justify-content: center;
+}
+
 
 /* ---- RIGHT BOX ---- */
 
