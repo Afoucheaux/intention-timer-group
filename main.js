@@ -34,6 +34,7 @@ form.addEventListener('click', function(event){
   }
   if (event.target.className === 'log-button') {
     saveActivity();
+    changeCardColor();
   }
 });
 
@@ -147,7 +148,7 @@ function showLogButton(){
 function saveActivity(){
   event.preventDefault();
   defaultRightSide.innerHTML = `<article class="activity-container" id="pastActivity">
-    <div class="style-box">
+    <div class="style-box" id="cardStyle">
       <p class="logged-category">${currentActivity.category}</p>
       <p class="logged-time">${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</p>
     </div>
@@ -169,4 +170,15 @@ leftTitle.innerText = 'Completed Activity';
 form.innerHTML = `<div class="create-view">
   <button class="create-button" id="createButton">CREATE A NEW ACTIVITY</button>
 </div>`;
+}
+
+function changeCardColor() {
+  var cardStyle = document.querySelector('#cardStyle');
+  if(currentActivity.category === 'Study') {
+    cardStyle.classList.add('style-box-study');
+  } else if(currentActivity.category === 'Meditate') {
+    cardStyle.classList.add('style-box-meditate');
+  } else if(currentActivity.category === 'Exercise') {
+    cardStyle.classList.add('style-box-exercise');
+  }
 }

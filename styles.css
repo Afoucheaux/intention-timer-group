@@ -209,8 +209,22 @@ input[type=number] {
   font-size: 1em;
 }
 
-.style-box {
-  border: solid 4px #C278FD;
+.style-box-study {
+  border: 4px solid #B3FD78;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-top-style: none;
+}
+
+.style-box-meditate {
+  border: 4px solid #C278FD;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-top-style: none;
+}
+
+.style-box-exercise {
+  border: 4px solid #FD8078;
   border-left-style: none;
   border-bottom-style: none;
   border-top-style: none;
