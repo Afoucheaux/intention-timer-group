@@ -17,7 +17,6 @@ var meditateButton = document.querySelector('#meditate');
 var minuteInputField = document.querySelector('#minutesInput');
 var secondsInputField = document.querySelector('#secondsInput');
 var textError = document.querySelector('#textError');
-var newActivityView= document.querySelector('#createNew');
 
 //Event Listeners
 form.addEventListener('click', function(event){
@@ -152,6 +151,7 @@ function saveActivity(){
     </div>
     <p class="logged-description">${currentActivity.description}</p>
   </article>`;
+  displayNewActivity();
 }
 
 function hide(element) {
@@ -168,5 +168,7 @@ function timeInputRestriction(){
 }
 
 function displayNewActivity() {
-
+form.innerHTML = `<div class="create-view">
+  <button class="create-button" id="createButton">CREATE A NEW ACTIVITY</button>
+</div>`;
 }
