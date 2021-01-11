@@ -2,7 +2,7 @@
 var currentCategory = null;
 var currentActivity;
 var savedActivities = [];
-//Query Selectors
+
 
 var accomplishInput = document.querySelector('#accomplishInput');
 var activityButton = document.querySelector('#startActivity');
@@ -21,6 +21,8 @@ var secondsInputField = document.querySelector('#secondsInput');
 var textError = document.querySelector('#textError');
 
 //Event Listeners
+
+
 form.addEventListener('click', function(event){
   if (event.target.className === 'category-button') {
     changeButtonColor();
@@ -35,16 +37,16 @@ form.addEventListener('click', function(event){
   }
   if (event.target.className === 'log-button') {
     currentActivity.markComplete();
+    getFromSaved();
     saveActivity(savedActivities);
     changeCardColor();
+    saveLocal();
   }
   if (event.target.className === 'create-button') {
     // returnHome();
     // window.addEventListener('load', saveActivity);
   }
 });
-
-
 
 //Functions
 function removeCategoryColor(){
@@ -194,6 +196,14 @@ function changeCardColor() {
   }
 }
 
-// function returnHome() {
-//   event.preventDefault();
-// }
+function saveLocal() {
+  currentActivity.saveToStorage();
+}
+
+function getFromSaved() {
+  for (var i = 0 ; i < localStorage.length; i++) {
+    var saved = JSON.parse(localStorage.getItem(i));
+    console.log(saved);
+    savedActivities.push(saved);
+  }
+}

@@ -33,5 +33,8 @@ class Activity {
   }
 
   saveToStorage() {
+   var saved = JSON.stringify(this);
+   var key = localStorage.length;
+   localStorage.setItem(key, saved);
   }
 };
