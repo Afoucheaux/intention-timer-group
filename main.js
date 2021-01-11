@@ -149,6 +149,7 @@ function showLogButton(){
 
 function saveActivity(array){
   event.preventDefault();
+  defaultRightSide.innerHTML = "";
   for(var i = 0; i < array.length; i++) {
     defaultRightSide.innerHTML += `<article class="activity-container" id="pastActivity">
     <div class="style-box" id="cardStyle">
