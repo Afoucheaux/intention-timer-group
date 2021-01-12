@@ -39,7 +39,7 @@ form.addEventListener('click', function(event){
     currentActivity.markComplete();
     getFromSaved();
     saveActivity(savedActivities);
-    changeCardColor();
+    changeCardColor(savedActivities);
     saveLocal();
   }
   if (event.target.className === 'create-button') {
@@ -160,7 +160,7 @@ function saveActivity(array){
   defaultRightSide.innerHTML = "";
   for(var i = 0; i < array.length; i++) {
     defaultRightSide.innerHTML += `<article class="activity-container" id="pastActivity">
-    <div class="style-box" id="cardStyle">
+    <div class="style-box" id="${array[i].id}">
     <p class="logged-category">${array[i].category}</p>
     <p class="logged-time">${array[i].minutes} MIN ${array[i].seconds} SECONDS</p>
     </div>
@@ -185,14 +185,19 @@ form.innerHTML = `<div class="create-view">
 </div>`;
 }
 
-function changeCardColor() {
-  var cardStyle = document.querySelector('#cardStyle');
-  if(currentActivity.category === 'Study') {
-    cardStyle.classList.add('style-box-study');
-  } else if(currentActivity.category === 'Meditate') {
-    cardStyle.classList.add('style-box-meditate');
-  } else if(currentActivity.category === 'Exercise') {
-    cardStyle.classList.add('style-box-exercise');
+function changeCardColor(savedCards) {
+
+  console.log("this is a test");
+  for (var i = 0; i < savedCards.length; i++) {
+    console.log(savedCards);
+    var cardStyle = document.getElementById(`${savedCards[i].id}`);
+    if(savedCards[i].category === 'Study') {
+      cardStyle.classList.add('style-box-study');
+    } else if(savedCards[i].category === 'Meditate') {
+      cardStyle.classList.add('style-box-meditate');
+    } else if(savedCards[i].category === 'Exercise') {
+      cardStyle.classList.add('style-box-exercise');
+    }
   }
 }
 
