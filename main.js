@@ -20,15 +20,7 @@ var studyButton = document.querySelector('#study');
 var textError = document.querySelector('#textError');
 
 // Event Listeners
-
 window.addEventListener('load', showPast);
-
-function showPast() {
-  getFromSaved();
-  saveActivity(savedActivities);
-  changeCardColor(savedActivities);
-}
-
 
 form.addEventListener('click', function(event){
   if (event.target.className === 'category-button') {
@@ -52,6 +44,12 @@ form.addEventListener('click', function(event){
 });
 
 //Functions
+function showPast() {
+  getFromSaved();
+  saveActivity(savedActivities);
+  changeCardColor(savedActivities);
+}
+
 function removeCategoryColor(){
   hide(litStudyButton);
   hide(litExerciseButton);
