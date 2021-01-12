@@ -15,9 +15,15 @@
 
 ## Overview
 
-  *  This is a group student project to begin to understand the nuances of working on a team of people while increasing/solidfying code-skills.  We were tasked to build an application that allows the user to set goals for their health and productivity.
+  *  This is a group student project to begin to understand the nuances of working on a team of people while increasing/solidifying code-skills.  We were tasked to build an application that allows the user to set goals for their health and productivity. We were tasked to tie those goals to a timer.
+  * At full functionality user's will select an activity category, set the amount of time they want to spend on that activity, and start the timer.  The app will log that activity to keep track of how the user has been spending their time.
 
 ## Contributors
+
+  *
+  *
+  *
+
 
 ## Functionality Goals
 
