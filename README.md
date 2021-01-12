@@ -16,15 +16,33 @@
 ## Overview
 
   *  This is a group student project to begin to understand the nuances of working on a team of people while increasing/solidifying code-skills.  We were tasked to build an application that allows the user to set goals for their health and productivity. We were tasked to tie those goals to a timer.
-  * At full functionality user's will select an activity category, set the amount of time they want to spend on that activity, and start the timer.  The app will log that activity to keep track of how the user has been spending their time.
+
+## Set-up
+  * Create repository and clone to personal computer
+  * Open in text editor
+  * Read the README.md
+  * In terminal, run command "open index.html" to interact with app.
+
+## Project Links
+
+  * [Repo](https://github.com/battan40/intention-timer-group)
+  * [Deployed Page](https://battan40.github.io/intention-timer-group/?)
+
 
 ## Contributors
 
-  *
-  *
-  *
-
+  * [Alex Thompson](https://github.com/alexthompson207)
+  * [Aaron Foucheaux](https://github.com/Afoucheaux)
+  * [Angela Battillo](https://github.com/battan40)
 
 ## Functionality Goals
 
+* At full functionality user's will select an activity category, set the amount of time they want to spend on that activity, and start the timer.  The app will log that activity to keep track of how the user has been spending their time.
+
 ## Road Map
+
+* Future iterations should include expand/collapse reflection
+* Functionality of favorite and re-do options with corresponding icons
+* Pausing the timer
+* Animate the timer
+* Consider user experience and sit with the app and look for ways to make the experience more pleasurable and compassionate.
