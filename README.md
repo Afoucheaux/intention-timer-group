@@ -28,7 +28,6 @@
   * [Repo](https://github.com/battan40/intention-timer-group)
   * [Deployed Page](https://battan40.github.io/intention-timer-group/?)
 
-
 ## Contributors
 
   * [Alex Thompson](https://github.com/alexthompson207)
@@ -46,3 +45,11 @@
 * Pausing the timer
 * Animate the timer
 * Consider user experience and sit with the app and look for ways to make the experience more pleasurable and compassionate.
+
+## Preview
+
+<p align="left">New Activity page </br>
+
+ <img width="1000" height="500" src="./file/name-of-file.jpg">
+ 
+</p>
