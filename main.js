@@ -1,8 +1,7 @@
 //Global Variables
-var currentCategory = null;
+var currentCategory = undefined;
 var currentActivity;
 var savedActivities = [];
-
 
 var accomplishInput = document.querySelector('#accomplishInput');
 var activityButton = document.querySelector('#startActivity');
@@ -14,13 +13,22 @@ var leftTitle = document.querySelector('#leftTitle');
 var litExerciseButton = document.querySelector('#litExercise');
 var litMeditateButton = document.querySelector('#litMeditate');
 var litStudyButton = document.querySelector('#litStudy');
-var studyButton = document.querySelector('#study');
 var meditateButton = document.querySelector('#meditate');
 var minuteInputField = document.querySelector('#minutesInput');
 var secondsInputField = document.querySelector('#secondsInput');
+var studyButton = document.querySelector('#study');
 var textError = document.querySelector('#textError');
 
-//Event Listeners
+// Event Listeners
+
+window.addEventListener('load', test);
+
+function test() {
+  getFromSaved();
+  saveActivity(savedActivities);
+  changeCardColor(savedActivities);
+  console.log("this is a test");
+}
 
 
 form.addEventListener('click', function(event){
@@ -41,10 +49,7 @@ form.addEventListener('click', function(event){
     saveActivity(savedActivities);
     changeCardColor(savedActivities);
     saveLocal();
-  }
-  if (event.target.className === 'create-button') {
-    // returnHome();
-    // window.addEventListener('load', saveActivity);
+    displayNewActivity();
   }
 });
 
@@ -92,7 +97,7 @@ function formDataCollection(){
 
 function checkInputs() {
   var error = false;
-  if(currentCategory === null) {
+  if(currentCategory === undefined) {
     error = true;
   } else if(accomplishInput.value === "") {
     unhide(textError);
@@ -146,13 +151,13 @@ function timeUpdate(min, sec) {
 }
 
 function markHelper() {
-    document.getElementById('startTimerButton').innerText = "COMPLETE!";
-    showLogButton();
+  document.getElementById('startTimerButton').innerText = "COMPLETE!";
+  showLogButton();
 }
 
 function showLogButton(){
-    var logButton = document.querySelector('#logActivity');
-    unhide(logButton);
+  var logButton = document.querySelector('#logActivity');
+  unhide(logButton);
 }
 
 function saveActivity(array){
@@ -167,7 +172,7 @@ function saveActivity(array){
     <p class="logged-description">${array[i].description}</p>
     </article>`;
   }
-  displayNewActivity();
+  // displayNewActivity();
 }
 
 function hide(element) {
@@ -186,10 +191,7 @@ form.innerHTML = `<div class="create-view">
 }
 
 function changeCardColor(savedCards) {
-
-  console.log("this is a test");
   for (var i = 0; i < savedCards.length; i++) {
-    console.log(savedCards);
     var cardStyle = document.getElementById(`${savedCards[i].id}`);
     if(savedCards[i].category === 'Study') {
       cardStyle.classList.add('style-box-study');
@@ -208,7 +210,6 @@ function saveLocal() {
 function getFromSaved() {
   for (var i = 0 ; i < localStorage.length; i++) {
     var saved = JSON.parse(localStorage.getItem(i));
-    console.log(saved);
     savedActivities.push(saved);
   }
 }

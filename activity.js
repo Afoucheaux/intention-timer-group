@@ -7,6 +7,7 @@ class Activity {
     this.completed = false;
     this.id = Date.now();
   }
+
   startTimer() {
     var sec = this.seconds;
     var min = this.minutes;
@@ -24,7 +25,6 @@ class Activity {
     timeUpdate(min, sec);
   }
 }
-
 
   markComplete() {
     markHelper();
