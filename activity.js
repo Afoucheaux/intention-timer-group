@@ -29,7 +29,6 @@ class Activity {
   markComplete() {
     markHelper();
     this.completed = true;
-    savedActivities.push(this);
   }
 
   saveToStorage() {

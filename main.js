@@ -21,13 +21,12 @@ var textError = document.querySelector('#textError');
 
 // Event Listeners
 
-window.addEventListener('load', test);
+window.addEventListener('load', showPast);
 
-function test() {
+function showPast() {
   getFromSaved();
   saveActivity(savedActivities);
   changeCardColor(savedActivities);
-  console.log("this is a test");
 }
 
 
@@ -45,7 +44,6 @@ form.addEventListener('click', function(event){
   }
   if (event.target.className === 'log-button') {
     currentActivity.markComplete();
-    getFromSaved();
     saveActivity(savedActivities);
     changeCardColor(savedActivities);
     saveLocal();
@@ -160,8 +158,7 @@ function showLogButton(){
   unhide(logButton);
 }
 
-function saveActivity(array){
-  event.preventDefault();
+function saveActivity(array) {
   defaultRightSide.innerHTML = "";
   for(var i = 0; i < array.length; i++) {
     defaultRightSide.innerHTML += `<article class="activity-container" id="pastActivity">
@@ -172,7 +169,6 @@ function saveActivity(array){
     <p class="logged-description">${array[i].description}</p>
     </article>`;
   }
-  // displayNewActivity();
 }
 
 function hide(element) {
