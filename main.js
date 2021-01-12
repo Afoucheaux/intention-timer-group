@@ -1,4 +1,4 @@
-//Global Variables
+
 var currentCategory = undefined;
 var currentActivity;
 var savedActivities = [];
@@ -19,7 +19,6 @@ var secondsInputField = document.querySelector('#secondsInput');
 var studyButton = document.querySelector('#study');
 var textError = document.querySelector('#textError');
 
-// Event Listeners
 window.addEventListener('load', showPast);
 
 form.addEventListener('click', function(event){
@@ -38,19 +37,18 @@ form.addEventListener('click', function(event){
     currentActivity.markComplete();
     saveActivity(savedActivities);
     changeCardColor(savedActivities);
-    saveLocal();
+    currentActivity.saveToStorage();
     displayNewActivity();
   }
 });
 
-//Functions
 function showPast() {
   getFromSaved();
   saveActivity(savedActivities);
   changeCardColor(savedActivities);
 }
 
-function removeCategoryColor(){
+function removeCategoryColor() {
   hide(litStudyButton);
   hide(litExerciseButton);
   hide(litMeditateButton);
@@ -61,7 +59,7 @@ function removeCategoryColor(){
 
 function changeButtonColor() {
   removeCategoryColor();
- if (event.target.id === 'study'){
+ if (event.target.id === 'study') {
   hide(studyButton);
   unhide(litStudyButton);
   currentCategory = 'Study';
@@ -76,10 +74,10 @@ function changeButtonColor() {
  }
 };
 
-function formDataCollection(){
+function formDataCollection() {
   event.preventDefault();
   event.target === 'startActivity';
-  if(checkInputs() === true) {
+  if (checkInputs() === true) {
     return;
   } else {
     var userActivity = accomplishInput.value;
@@ -93,12 +91,12 @@ function formDataCollection(){
 
 function checkInputs() {
   var error = false;
-  if(currentCategory === undefined) {
+  if (currentCategory === undefined) {
     error = true;
-  } else if(accomplishInput.value === "") {
+  } else if (accomplishInput.value === '') {
     unhide(textError);
     error = true;
-  } else if(minuteInputField.value === "" || secondsInputField.value === "") {
+  } else if (minuteInputField.value === '' || secondsInputField.value === '') {
     error = true;
   }
   return error;
@@ -121,14 +119,14 @@ function switchToTimer() {
 }
 
 function colorUpdate() {
-  leftTitle.innerText = 'Current Activity';
+  leftTitle.innerText = "Current Activity";
   var startTimerButton = document.querySelector('#startTimerButton');
-  if(currentActivity.category === 'Study') {
-    startTimerButton.style.border = "3px solid #B3FD78";
-  } else if(currentActivity.category === 'Meditate') {
-    startTimerButton.style.border = "3px solid #C278FD";
-  } else if(currentActivity.category === 'Exercise') {
-    startTimerButton.style.border = "3px solid #FD8078";
+  if (currentActivity.category === 'Study') {
+    startTimerButton.style.border = '3px solid #B3FD78';
+  } else if (currentActivity.category === 'Meditate') {
+    startTimerButton.style.border = '3px solid #C278FD';
+  } else if (currentActivity.category === 'Exercise') {
+    startTimerButton.style.border = '3px solid #FD8078';
   }
 }
 
@@ -151,7 +149,7 @@ function markHelper() {
   showLogButton();
 }
 
-function showLogButton(){
+function showLogButton() {
   var logButton = document.querySelector('#logActivity');
   unhide(logButton);
 }
@@ -162,27 +160,19 @@ function saveActivity(array) {
   } else {
   defaultRightSide.innerHTML = "";
     for(var i = 0; i < array.length; i++) {
-    defaultRightSide.innerHTML += `<article class="activity-container" id="pastActivity">
-    <div class="style-box" id="${array[i].id}">
-    <p class="logged-category">${array[i].category}</p>
-    <p class="logged-time">${array[i].minutes} MIN ${array[i].seconds} SECONDS</p>
-    </div>
-    <p class="logged-description">${array[i].description}</p>
-    </article>`;
-   }
+      defaultRightSide.innerHTML += `<article class="activity-container" id="pastActivity">
+      <div class="style-box" id="${array[i].id}">
+      <p class="logged-category">${array[i].category}</p>
+      <p class="logged-time">${array[i].minutes} MIN ${array[i].seconds} SECONDS</p>
+      </div>
+      <p class="logged-description">${array[i].description}</p>
+      </article>`;
+    }
   }
 }
 
-function hide(element) {
-  element.classList.add('hidden');
-}
-
-function unhide(element) {
-  element.classList.remove('hidden');
-}
-
 function displayNewActivity() {
-leftTitle.innerText = 'Completed Activity';
+leftTitle.innerText = "Completed Activity";
 form.innerHTML = `<div class="create-view">
   <button class="create-button" id="createButton">CREATE A NEW ACTIVITY</button>
 </div>`;
@@ -191,18 +181,14 @@ form.innerHTML = `<div class="create-view">
 function changeCardColor(savedCards) {
   for (var i = 0; i < savedCards.length; i++) {
     var cardStyle = document.getElementById(`${savedCards[i].id}`);
-    if(savedCards[i].category === 'Study') {
+    if (savedCards[i].category === 'Study') {
       cardStyle.classList.add('style-box-study');
-    } else if(savedCards[i].category === 'Meditate') {
+    } else if (savedCards[i].category === 'Meditate') {
       cardStyle.classList.add('style-box-meditate');
-    } else if(savedCards[i].category === 'Exercise') {
+    } else if (savedCards[i].category === 'Exercise') {
       cardStyle.classList.add('style-box-exercise');
     }
   }
-}
-
-function saveLocal() {
-  currentActivity.saveToStorage();
 }
 
 function getFromSaved() {
@@ -214,4 +200,12 @@ function getFromSaved() {
       savedActivities.push(saved);
     }
   }
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
+function unhide(element) {
+  element.classList.remove('hidden');
 }
