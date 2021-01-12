@@ -157,8 +157,11 @@ function showLogButton(){
 }
 
 function saveActivity(array) {
+  if (savedActivities.length === 0) {
+    return
+  } else {
   defaultRightSide.innerHTML = "";
-  for(var i = 0; i < array.length; i++) {
+    for(var i = 0; i < array.length; i++) {
     defaultRightSide.innerHTML += `<article class="activity-container" id="pastActivity">
     <div class="style-box" id="${array[i].id}">
     <p class="logged-category">${array[i].category}</p>
@@ -166,6 +169,7 @@ function saveActivity(array) {
     </div>
     <p class="logged-description">${array[i].description}</p>
     </article>`;
+   }
   }
 }
 
@@ -203,7 +207,11 @@ function saveLocal() {
 
 function getFromSaved() {
   for (var i = 0 ; i < localStorage.length; i++) {
-    var saved = JSON.parse(localStorage.getItem(i));
-    savedActivities.push(saved);
+    if (localStorage.length === 0) {
+      return
+    } else {
+      var saved = JSON.parse(localStorage.getItem(i));
+      savedActivities.push(saved);
+    }
   }
 }
