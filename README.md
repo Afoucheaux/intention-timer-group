@@ -1,6 +1,6 @@
-## Intention Timer
+# Intention Timer
 
-# A Project to Model Best Life and Programming Practices
+#### A Project to Model Best Life and Programming Practices
 
   *Work on this project has slowed or stopped completely. Deadline 1/12/2021, 9pm MST.*
 
@@ -15,10 +15,60 @@
 
 ## Overview
 
-  *  This is a group student project to begin to understand the nuances of working on a team of people while increasing/solidfying code-skills.  We were tasked to build an application that allows the user to set goals for their health and productivity.
+  *  This is a group student project to begin to understand the nuances of working on a team of people while increasing/solidifying code-skills.  We were tasked to build an application that allows the user to set goals for their health and productivity. We were tasked to tie those goals to a timer.
+
+## Set-up
+  * Create repository and clone to personal computer
+  * Open in text editor
+  * Read the README.md
+  * In terminal, run command "open index.html" to interact with app.
+
+## Project Links
+
+  * [Repo](https://github.com/battan40/intention-timer-group)
+  * [Deployed Page](https://battan40.github.io/intention-timer-group/?)
 
 ## Contributors
 
+  * [Alex Thompson](https://github.com/alexthompson207)
+  * [Aaron Foucheaux](https://github.com/Afoucheaux)
+  * [Angela Battillo](https://github.com/battan40)
+
 ## Functionality Goals
 
+* At full functionality user's will select an activity category, set the amount of time they want to spend on that activity, and start the timer.  The app will log that activity to keep track of how the user has been spending their time.
+
 ## Road Map
+
+* Future iterations should include expand/collapse reflection
+* Functionality of favorite and re-do options with corresponding icons
+* Pausing the timer
+* Animate the timer
+* Consider user experience and sit with the app and look for ways to make the experience more pleasurable and compassionate.
+
+## Preview
+
+<p align="left">Set Activity Page</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/first.png">
+</p>
+<p align="left">Error Handling</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/2nd.png">
+</p>
+<p align="left">Display Form With Correlating Colors</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/3rd.png">
+</p>
+<p align="left">Start Timer</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/4th.png">
+</p>
+<p align="left">Log Activity</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/5th.png">
+</p>
+<p align="left">Display Updated Activities With Create Activity Button</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/6th.png">
+</p>
+<p align="left">Returns to Activity Screen With Past Activities Saved</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/7th.png">
+</p>
+<p align="left">On Refresh Display All Logged Activities</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/final.png">
+</p>
