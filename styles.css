@@ -13,9 +13,6 @@ html {
   background-color: #2B2733;
 }
 
-
-/* ---- HEADER ---- */
-
 header {
   display: flex;
   justify-content: center;
@@ -25,19 +22,20 @@ header {
 button:hover {
   cursor: pointer;
 }
+
 input[type=text],
 input[type=number] {
   color: #fff;
   font-size: 1.1em;
 }
 
+/* ---- HEADER ---- */
 .h1 {
   color: #fff;
   font-weight: 400;
   font-size: 1.5em;
   padding: 20px 0 20px 0;
 }
-
 
 /* ---- BOX LAYOUT ---- */
 .main {
@@ -49,9 +47,8 @@ input[type=number] {
 
 .title {
   color: #CBC9CF;
-  margin: 3% 0% 0% 3%;
+  margin: 3% 0 0 3%;
 }
-
 
 /* ---- LEFT BOX ---- */
 
@@ -68,7 +65,7 @@ input[type=number] {
   color: #fff;
   border-radius: 5px;
   height: 75vh;
-  margin: 1% 3% 0% 3%;
+  margin: 1% 3% 0 3%;
   padding: 5% 15% 5% 15%;
   box-shadow: 5px 5px #26222D;
 }
@@ -159,7 +156,6 @@ input[type=number] {
   justify-content: center;
 }
 
-
 /* ---- RIGHT BOX ---- */
 
 .right {
@@ -171,7 +167,7 @@ input[type=number] {
 }
 
 .right-title {
-  margin: 5% 0% 0% 5%;
+  margin: 5% 0 0 5%;
 }
 
 .default {
@@ -187,7 +183,7 @@ input[type=number] {
 .activity-container {
   margin: 2% 3% 2% 5%;
   border-radius: 5px;
-  box-shadow: #26222D;
+  box-shadow: 5px 5px #26222D;
   padding: 3%;
   width: 90%;
   background-color: #46424D;
@@ -202,7 +198,7 @@ input[type=number] {
 
 .logged-time {
   font-size: 1.1em;
-  margin: 0% 0% 3% 0%;
+  margin: 0 0 3% 0;
 }
 
 .logged-description {
@@ -230,8 +226,7 @@ input[type=number] {
   border-top-style: none;
 }
 
-
-/* ---- BUTTONS ---- */
+/* ---- LEFTSIDE-BUTTONS ---- */
 .study-img,
 .meditate-img,
 .exercise-img,
@@ -250,7 +245,7 @@ input[type=number] {
   flex-direction: column;
   align-items: center;
   padding: 1.2% 7% 1.2% 7%;
-  margin: 3% 0% 9% 0%;
+  margin: 3% 0 9% 0;
 }
 
 .top-buttons {
@@ -296,7 +291,6 @@ input[type=number] {
   color: #C278FD;
 }
 
-
 /* ---- TIMER ---- */
 .timer-view {
   display: flex;
@@ -327,7 +321,6 @@ input[type=number] {
   font-weight: 400;
   font-family: sans-serif;
 }
-
 
 /* ---- HIDDEN ---- */
 .hidden {
