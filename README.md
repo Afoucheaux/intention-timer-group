@@ -1,6 +1,6 @@
-## Intention Timer
+# Intention Timer
 
-# A Project to Model Best Life and Programming Practices
+#### A Project to Model Best Life and Programming Practices
 
   *Work on this project has slowed or stopped completely. Deadline 1/12/2021, 9pm MST.*
 
@@ -48,8 +48,27 @@
 
 ## Preview
 
-<p align="left">New Activity page </br>
-
- <img width="1000" height="500" src="./file/name-of-file.jpg">
- 
+<p align="left">Set Activity Page</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/first.png">
+</p>
+<p align="left">Error Handling</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/2nd.png">
+</p>
+<p align="left">Display Form With Correlating Colors</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/3rd.png">
+</p>
+<p align="left">Start Timer</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/4th.png">
+</p>
+<p align="left">Log Activity</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/5th.png">
+</p>
+<p align="left">Display Updated Activities With Create Activity Button</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/6th.png">
+</p>
+<p align="left">Returns to Activity Screen With Past Activities Saved</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/7th.png">
+</p>
+<p align="left">On Refresh Display All Logged Activities</br>
+ <img width="1000" height="500" src="./screen-shots-read-me/final.png">
 </p>
