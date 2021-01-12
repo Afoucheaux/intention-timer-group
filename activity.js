@@ -7,6 +7,7 @@ class Activity {
     this.completed = false;
     this.id = Date.now();
   }
+
   startTimer() {
     var sec = this.seconds;
     var min = this.minutes;
@@ -25,7 +26,6 @@ class Activity {
   }
 }
 
-
   markComplete() {
     markHelper();
     this.completed = true;
@@ -33,5 +33,8 @@ class Activity {
   }
 
   saveToStorage() {
+   var saved = JSON.stringify(this);
+   var key = localStorage.length;
+   localStorage.setItem(key, saved);
   }
 };
