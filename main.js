@@ -18,7 +18,9 @@ var studyButton = document.querySelector('#study');
 var textError = document.querySelector('#textError');
 
 window.addEventListener('load', showPast);
-form.addEventListener('click', function(event){
+form.addEventListener('click', eventHelper);
+
+function eventHelper(event) {
   if (event.target.className === 'category-button') {
     changeButtonColor();
   }
@@ -37,7 +39,7 @@ form.addEventListener('click', function(event){
     currentActivity.saveToStorage();
     displayNewActivity();
   }
-});
+}
 
 function showPast() {
   getFromSaved();
@@ -69,7 +71,7 @@ function changeButtonColor() {
   unhide(litExerciseButton);
   currentCategory = 'Exercise';
  }
-};
+}
 
 function formDataCollection() {
   event.preventDefault();
