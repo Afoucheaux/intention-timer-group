@@ -1,8 +1,6 @@
-
-var currentCategory = undefined;
+var currentCategory;
 var currentActivity;
 var savedActivities = [];
-
 var accomplishInput = document.querySelector('#accomplishInput');
 var activityButton = document.querySelector('#startActivity');
 var defaultRightSide = document.querySelector('#originalPage');
@@ -20,8 +18,9 @@ var studyButton = document.querySelector('#study');
 var textError = document.querySelector('#textError');
 
 window.addEventListener('load', showPast);
+form.addEventListener('click', eventHelper);
 
-form.addEventListener('click', function(event){
+function eventHelper(event) {
   if (event.target.className === 'category-button') {
     changeButtonColor();
   }
@@ -40,7 +39,7 @@ form.addEventListener('click', function(event){
     currentActivity.saveToStorage();
     displayNewActivity();
   }
-});
+}
 
 function showPast() {
   getFromSaved();
@@ -72,7 +71,7 @@ function changeButtonColor() {
   unhide(litExerciseButton);
   currentCategory = 'Exercise';
  }
-};
+}
 
 function formDataCollection() {
   event.preventDefault();
@@ -145,7 +144,8 @@ function timeUpdate(min, sec) {
 }
 
 function markHelper() {
-  document.getElementById('startTimerButton').innerText = "COMPLETE!";
+  var startTimerButton = document.getElementById('startTimerButton')
+  startTimerButton.innerText = "COMPLETE!";
   showLogButton();
 }
 

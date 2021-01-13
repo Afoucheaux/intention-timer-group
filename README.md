@@ -45,6 +45,7 @@
 * Pausing the timer
 * Animate the timer
 * Consider user experience and sit with the app and look for ways to make the experience more pleasurable and compassionate.
+* Add more and randomly occurring encouraging messages to timer.
 
 ## Preview
 
